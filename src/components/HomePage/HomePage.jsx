@@ -28,7 +28,7 @@ function HomePage() {
     //clear inputs
     setSearch('');
     //and move to the search page
-    history.push('/search');
+    // history.push('/search');
   }
 
   return (

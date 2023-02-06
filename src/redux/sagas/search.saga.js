@@ -5,13 +5,13 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* searchBooks(action) {
     try {
         const search = action.payload;
-        console.log(search);
+        console.log('here is what we are searching:', search);
         const response = yield axios({
             method: 'GET',
             url: `/api/search/${search}`
         })
     } catch {
-        
+
     }
 }
 
