@@ -1,5 +1,4 @@
-import React from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -28,7 +27,7 @@ function HomePage() {
     //clear inputs
     setSearch('');
     //and move to the search page
-    // history.push('/search');
+    history.push('/search');
   }
 
   return (
