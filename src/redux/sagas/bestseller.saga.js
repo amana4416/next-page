@@ -8,7 +8,11 @@ function* fetchBestSellers() {
             method: 'GET',
             url: `/api/bestsellers`
         })
-
+        //store the list of best sellers in reducer
+        yield put({
+            type: 'SET_BEST_SELLERS',
+            payload: response.data
+        })
     } catch {
         console.log('error fetching best sellers', error);
     }

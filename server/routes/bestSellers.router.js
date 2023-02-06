@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
         url: `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${nyt_api}`
     })
     .then((response) => {
-        console.log('here are our best sellers', response.data.results);
+        console.log('here are our best sellers', response.data.results.books);
         res.send(response.data.results);
     })
     .catch((error) => {
