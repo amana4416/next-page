@@ -8,7 +8,7 @@ function BestSellers() {
 
     useEffect(() => {
         dispatch({
-            type: 'SET_BEST_SELLERS'
+            type: 'SAGA/SET_BEST_SELLERS'
         })
     }, [])
 

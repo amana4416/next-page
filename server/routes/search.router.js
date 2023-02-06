@@ -7,11 +7,8 @@ require('dotenv').config()
 //google books api
 const google_books_api = process.env.google_books_api
 
-/**
- * GET route template
- */
+
 router.get('/:query', (req, res) => {
-  // GET route code here
     const search = req.params.query;
     console.log('here is what we are searching:', search);
     //sending axios get request to api
