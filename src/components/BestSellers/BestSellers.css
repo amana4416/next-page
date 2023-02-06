@@ -1,0 +1,14 @@
+.bestSellersBackground {
+    background-color: #808274;
+    margin: auto;
+    margin-top: 40px;
+    height: 500px;
+    width: 1300px;
+}
+
+.heading {
+    color: #C79A96;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+}
