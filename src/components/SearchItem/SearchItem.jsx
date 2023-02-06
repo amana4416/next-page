@@ -1,6 +1,6 @@
 import React from 'react';
 import './SearchItem.css';
-//mui import
+//mui imports
 import Paper from '@mui/material/Paper';
 
 function SearchItem({results}) {

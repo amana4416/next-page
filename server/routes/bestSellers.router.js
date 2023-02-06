@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
     })
     .then((response) => {
         console.log('here are our best sellers', response.data.results.books);
-        res.send(response.data.results);
+        res.send(response.data.results.books);
     })
     .catch((error) => {
         console.log('error in /api/bestsellers')
