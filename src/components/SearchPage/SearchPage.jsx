@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import SearchForm from '../SearchForm/SearchForm';
 import SearchItem from '../SearchItem/SearchItem';
 
 
@@ -10,6 +11,7 @@ function SearchPage() {
 
   return (
     <>
+    <SearchForm />
       <h2>Search Results:</h2>
       <div>
         {searchResults.map(results => {
