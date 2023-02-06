@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './SearchItem.css';
+//mui import
+import Paper from '@mui/material/Paper';
 
 function SearchItem({results}) {
 
@@ -7,7 +10,19 @@ function SearchItem({results}) {
     
     return(
         <>
-            <img src={bookCover} alt={bookTitle} />
+            <section className='resultBackground'>
+                <Paper 
+                    elevation={3}
+                    sx={{backgroundColor: '#808274', margin: '15px', height: '335px', width: '300px', }}
+                >
+                    <h4>{bookTitle}</h4>
+                    <img src={bookCover} alt={bookTitle} />
+
+                </Paper>
+            </section>
+
+
+            
         </>
     )
 }
