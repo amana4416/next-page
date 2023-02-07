@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 
-//this get route will get fetch the books in bookshelf 1
+//this get route will get fetch the last 6 books in bookshelf 1
 //bookshelf 1 is the 'currently reading' bookshelf
 router.get('/currently/last', (req, res) => {
   console.log('fetching books you are currently reading');
@@ -25,7 +25,7 @@ router.get('/currently/last', (req, res) => {
     })
 });
 
-//this get route will get fetch the books in bookshelf 2
+//this get route will get fetch the last 6 books in bookshelf 2
 //bookshelf 2 is the 'want to read' bookshelf
 router.get('/want/last', (req, res) => {
     console.log('fetching books you want to read');
@@ -47,7 +47,7 @@ router.get('/want/last', (req, res) => {
       })
   });
 
-//this get route will get fetch the books in bookshelf 3
+//this get route will get fetch the last 6 books in bookshelf 3
 //bookshelf 3 is the 'finished reading' bookshelf
 router.get('/finished/last', (req, res) => {
     console.log('fetching books you finished reading');

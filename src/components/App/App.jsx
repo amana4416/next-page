@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import BookDetails from '../BookDetails/BookDetails';
 import ProfilePage from '../ProfilePage/ProfilePage';
+import CurrentlyReadingOpen from '../CurrentlyReadingOpen/CurrentlyReadingOpen';
 
 import './App.css';
 
@@ -76,6 +77,14 @@ function App() {
             path="/profile"
           >
             <ProfilePage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows ProfilePage else shows LoginPage
+            exact
+            path="/currentlyReadingOpen"
+          >
+            <CurrentlyReadingOpen />
           </ProtectedRoute>
 
           <ProtectedRoute

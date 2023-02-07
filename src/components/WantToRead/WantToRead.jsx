@@ -28,7 +28,7 @@ function WantToRead() {
                 {wantToRead.map(want => {
                     return (
                         <Paper
-                        key={want.book_ibsn}
+                        key={want.id}
                         sx={{backgroundColor: '#B7B4A2', height:'auto', width: '160px', margin: '15px', marginBottom: '15px',  display: 'inline-flex'}}
                         >
                             <img 

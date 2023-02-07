@@ -21,15 +21,19 @@ function CurrentlyReading() {
         })
     }, [])
 
+    const openCurrentlyReading = () => {
+        console.log('you opened a bookshelf');
+        history.push(`/currentlyReadingOpen`)
+    }
 
     return (
         <>
-            <section className="currentlyReadingBackground">
+            <section className="currentlyReadingBackground" onClick={openCurrentlyReading}>
                 <h2 className="bookshelfHeading">Currently Reading:</h2>
                 {currentlyReading.map(currently => {
                     return (
                         <Paper
-                        key={currently.book_ibsn}
+                        key={currently.id}
                         sx={{backgroundColor: '#B7B4A2', height:'auto', width: '160px', margin: '15px', marginBottom: '15px', display: 'inline-flex'}}
                         >
                             <img 
