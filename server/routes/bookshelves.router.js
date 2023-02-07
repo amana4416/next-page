@@ -14,7 +14,7 @@ router.get('/currently', (req, res) => {
   `;
   pool.query(sqlQuery)
     .then((response) => {
-        console.log('here are the books you are currently reading');
+        console.log('here are the books you are currently reading', response.rows);
         res.send(response.rows);
     })
     .catch((error) => {
