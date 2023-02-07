@@ -1,13 +1,14 @@
 import React from "react";
 import CurrentlyReading from "../CurrentlyReading/CurrentlyReading";
+import WantToRead from "../WantToRead/WantToRead";
 
 
 function ProfilePage() {
 
     return (
         <>
-            <p>bookshelves loading...</p>
             <CurrentlyReading />
+            <WantToRead />
         </>
     )
 }
