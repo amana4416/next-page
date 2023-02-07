@@ -45,7 +45,8 @@ function* fetchFinishedReading() {
         })
         //store books in a reducer
         yield put({
-
+            type: 'SET_FINISHED_READING',
+            payload: response.data
         })
     } catch {
         console.log('error fetching books you finished reading');

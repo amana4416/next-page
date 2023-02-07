@@ -18,8 +18,18 @@ const wantToRead = (state = [], action) => {
     }
 }
 
+const finishedReading = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_FINISHED_READING':
+            return action.payload
+        default:
+            return state
+    }
+}
+
 
 export default combineReducers({
     currentlyReading,
     wantToRead,
+    finishedReading
 })
