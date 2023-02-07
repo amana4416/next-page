@@ -5,7 +5,7 @@ const router = express.Router();
 
 //this get route will get fetch the books in bookshelf 1
 //bookshelf 1 is the 'currently reading' bookshelf
-router.get('/', (req, res) => {
+router.get('/currently', (req, res) => {
   
 });
 
