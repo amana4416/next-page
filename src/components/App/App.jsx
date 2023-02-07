@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import BookDetails from '../BookDetails/BookDetails';
+import ProfilePage from '../ProfilePage/ProfilePage';
 
 import './App.css';
 
@@ -62,7 +63,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows SearchPage else shows LoginPage
             exact
             path="/search"
           >
@@ -70,7 +71,15 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows ProfilePage else shows LoginPage
+            exact
+            path="/profile"
+          >
+            <ProfilePage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows BookDetails else shows LoginPage
             exact
             path="/details/:id"
           >

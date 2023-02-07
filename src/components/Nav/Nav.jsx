@@ -36,13 +36,14 @@ function Nav() {
               profile
             </Link>
 
+            <Link className="navLink" to="/about">
+              about
+            </Link>
+
             <LogOutButton className="navLink" />
           </>
         )}
 
-        <Link className="navLink" to="/about">
-          about
-        </Link>
       </div>
     </div>
   );
