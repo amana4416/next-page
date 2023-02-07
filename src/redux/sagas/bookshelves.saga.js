@@ -36,9 +36,26 @@ function* fetchWantToRead() {
     }
 }
 
+function* fetchFinishedReading() {
+    try {
+        //sending request to server
+        const response = yield axios({
+            method: 'GET',
+            url: `/api/bookshelves/finished`
+        })
+        //store books in a reducer
+        yield put({
+            
+        })
+    } catch {
+        console.log('error fetching books you finished reading');
+    }
+}
+
 function* bookshelvesSaga() {
     yield takeLatest('SAGA/FETCH_CURRENTLY_READING', fetchCurrentlyReading);
     yield takeLatest('SAGA/FETCH_WANT_TO_READ', fetchWantToRead);
+    yield takeLatest('SAGA/FETCH_FINISHED_READING', fetchFinishedReading);
 }
 
 export default bookshelvesSaga;
