@@ -9,7 +9,17 @@ const currentlyReading = (state = [], action) => {
     }
 }
 
+const wantToRead = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_WANT_TO_READ':
+            return action.payload;
+        default: 
+            return state;
+    }
+}
+
 
 export default combineReducers({
     currentlyReading,
+    wantToRead,
 })

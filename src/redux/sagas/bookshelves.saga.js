@@ -9,6 +9,7 @@ function* fetchCurrentlyReading() {
             //currently reading get route in the bookshelves router
             url: `/api/bookshelves/currently`
         })
+        //store books in a reducer
         yield put({
             type: 'SET_CURRENTLY_READING',
             payload: response.data
@@ -24,6 +25,11 @@ function* fetchWantToRead() {
         const response = yield axios({
             method: 'GET',
             url: `/api/bookshelves/want`
+        })
+        //store books in a reducer
+        yield put({
+            type: 'SET_WANT_TO_READ',
+            payload: response.data
         })
     } catch {
         console.log('error fetching books you want to read');

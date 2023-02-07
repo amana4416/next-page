@@ -11,7 +11,8 @@ function WantToRead() {
     const history = useHistory();
 
     //call the books marked as 'want to read' from the redux store
-
+    const wantToRead = useSelector(store => store.bookshelves.wantToRead);
+    console.log('here are the books we want to read:', wantToRead);
 
     useEffect(() => {
         dispatch({
