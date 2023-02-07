@@ -9,13 +9,17 @@ function* fetchBookShelves() {
             //currently reading get route in the bookshelves router
             url: `/api/bookshelves/currently`
         })
+        yield put({
+            type: 'SET_CURRENTLY_READING',
+            payload: response.data
+        })
     } catch {
         console.log('error fetching books you are currently reading');
     }
 }
 
 function* bookshelvesSaga() {
-    yield takeLatest('SAGA/FETCH_CURRENTLY_READING', fetchCurrentlyReading);
+    yield takeLatest('SAGA/FETCH_CURRENTLY_READING', fetchBookShelves);
 }
 
 export default bookshelvesSaga;

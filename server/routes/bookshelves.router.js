@@ -13,7 +13,7 @@ router.get('/currently', (req, res) => {
         WHERE "bookshelf" = 1;
   `;
   pool.query(sqlQuery)
-    .then((respone) => {
+    .then((response) => {
         console.log('here are the books you are currently reading');
         res.send(response.rows);
     })
