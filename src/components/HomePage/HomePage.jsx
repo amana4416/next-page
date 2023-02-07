@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import SearchForm from '../SearchForm/SearchForm';
+import HomeSearchForm from '../HomeSearhForm/HomeSearchForm';
 import BestSellers from '../BestSellers/BestSellers';
 
 function HomePage() {
@@ -15,7 +15,7 @@ function HomePage() {
 
   return (
    <>
-    <SearchForm />
+    <HomeSearchForm />
 
     <BestSellers />
    </>

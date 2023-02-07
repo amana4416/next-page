@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-function SearchForm() {
+function HomeSearchForm() {
     const dispatch = useDispatch();
     const history = useHistory();
   
@@ -22,6 +22,8 @@ function SearchForm() {
       //when the search goes through:
       //clear inputs
       setSearch('');
+      //and move to the search page
+      history.push('/search');
     }
 
     return (
@@ -46,4 +48,4 @@ function SearchForm() {
 
 }
 
-export default SearchForm;
+export default HomeSearchForm;
