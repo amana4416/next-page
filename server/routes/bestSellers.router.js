@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
         res.send(response.data.results.books);
     })
     .catch((error) => {
-        console.log('error in /api/bestsellers')
+        console.log('error in /api/bestsellers', error);
     })
 });
 
