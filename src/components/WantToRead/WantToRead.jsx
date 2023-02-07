@@ -11,7 +11,7 @@ function WantToRead() {
     const history = useHistory();
 
     //call the books marked as 'want to read' from the redux store
-    const wantToRead = useSelector(store => store.bookshelves.wantToRead);
+    const wantToRead = useSelector(store => store.bookshelves.lastWantToRead);
 
     //we're going to use useEffect in this component because we want the bookshelf to populate with
     //books marked as 'want to read' as soon as the profile page opens

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* fetchCurrentlyReading() {
+function* fetchLastCurrentlyReading() {
     try {
         //sending request to server
         const response = yield axios({
@@ -19,7 +19,7 @@ function* fetchCurrentlyReading() {
     }
 }
 
-function* fetchWantToRead() {
+function* fetchLastWantToRead() {
     try {
         //sending request to server
         const response = yield axios({
@@ -36,7 +36,7 @@ function* fetchWantToRead() {
     }
 }
 
-function* fetchFinishedReading() {
+function* fetchLastFinishedReading() {
     try {
         //sending request to server
         const response = yield axios({
@@ -54,9 +54,9 @@ function* fetchFinishedReading() {
 }
 
 function* bookshelvesSaga() {
-    yield takeLatest('SAGA/FETCH_CURRENTLY_READING', fetchCurrentlyReading);
-    yield takeLatest('SAGA/FETCH_WANT_TO_READ', fetchWantToRead);
-    yield takeLatest('SAGA/FETCH_FINISHED_READING', fetchFinishedReading);
+    yield takeLatest('SAGA/FETCH_CURRENTLY_READING', fetchLastCurrentlyReading);
+    yield takeLatest('SAGA/FETCH_WANT_TO_READ', fetchLastWantToRead);
+    yield takeLatest('SAGA/FETCH_FINISHED_READING', fetchLastFinishedReading);
 }
 
 export default bookshelvesSaga;

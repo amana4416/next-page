@@ -11,7 +11,7 @@ function CurrentlyReading() {
     const history = useHistory();
 
     //call the books marked as currently reading from the redux store
-    const currentlyReading = useSelector(store => store.bookshelves.currentlyReading);
+    const currentlyReading = useSelector(store => store.bookshelves.lastCurrentlyReading);
 
     //we're going to use useEffect in this component because we want the bookshelf to populate with
     //books marked as 'currently reading' as soon as the profile page opens

@@ -11,7 +11,7 @@ function FinishedReading() {
     const history = useHistory();
 
     //call the books marked as 'finished reading' from the redux store
-    const finishedReading = useSelector(store => store.bookshelves.finishedReading);
+    const finishedReading = useSelector(store => store.bookshelves.lastFinishedReading);
 
     //we're going to use useEffect in this component because we want the bookshelf to populate with
     //books marked as 'finished reading' as soon as the profile page opens

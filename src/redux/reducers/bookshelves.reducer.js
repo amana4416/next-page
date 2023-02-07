@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-const currentlyReading = (state = [], action) => {
+const lastCurrentlyReading = (state = [], action) => {
     switch (action.type) {
         case 'SET_CURRENTLY_READING':
             return action.payload;
@@ -9,7 +9,7 @@ const currentlyReading = (state = [], action) => {
     }
 }
 
-const wantToRead = (state = [], action) => {
+const lastWantToRead = (state = [], action) => {
     switch (action.type) {
         case 'SET_WANT_TO_READ':
             return action.payload;
@@ -18,7 +18,7 @@ const wantToRead = (state = [], action) => {
     }
 }
 
-const finishedReading = (state = [], action) => {
+const lastFinishedReading = (state = [], action) => {
     switch (action.type) {
         case 'SET_FINISHED_READING':
             return action.payload
@@ -29,7 +29,7 @@ const finishedReading = (state = [], action) => {
 
 
 export default combineReducers({
-    currentlyReading,
-    wantToRead,
-    finishedReading
+    lastCurrentlyReading,
+    lastWantToRead,
+    lastFinishedReading
 })
