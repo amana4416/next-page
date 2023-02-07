@@ -5,12 +5,14 @@ const router = express.Router();
 
 //this get route will get fetch the books in bookshelf 1
 //bookshelf 1 is the 'currently reading' bookshelf
-router.get('/currently', (req, res) => {
+router.get('/currently/last', (req, res) => {
   console.log('fetching books you are currently reading');
   //selecting books marked as 'currently reading' from the database
   const sqlQuery = `
     SELECT * FROM "user_library"
-        WHERE "bookshelf" = 1;
+        WHERE "bookshelf" = 1
+        ORDER BY "id" DESC
+	    FETCH FIRST 6 ROWS ONLY;
   `;
   pool.query(sqlQuery)
     .then((response) => {
@@ -25,12 +27,14 @@ router.get('/currently', (req, res) => {
 
 //this get route will get fetch the books in bookshelf 2
 //bookshelf 2 is the 'want to read' bookshelf
-router.get('/want', (req, res) => {
+router.get('/want/last', (req, res) => {
     console.log('fetching books you want to read');
     //selecting books marked as 'want to read' from the database
     const sqlQuery = `
       SELECT * FROM "user_library"
-          WHERE "bookshelf" = 2;
+        WHERE "bookshelf" = 2
+        ORDER BY "id" DESC
+        FETCH FIRST 6 ROWS ONLY;
     `;
     pool.query(sqlQuery)
       .then((response) => {
@@ -45,12 +49,14 @@ router.get('/want', (req, res) => {
 
 //this get route will get fetch the books in bookshelf 3
 //bookshelf 3 is the 'finished reading' bookshelf
-router.get('/finished', (req, res) => {
+router.get('/finished/last', (req, res) => {
     console.log('fetching books you finished reading');
     //selecting books marked as 'want to read' from the database
     const sqlQuery = `
       SELECT * FROM "user_library"
-          WHERE "bookshelf" = 3;
+        WHERE "bookshelf" = 3
+        ORDER BY "id" DESC
+        FETCH FIRST 6 ROWS ONLY;
     `;
     pool.query(sqlQuery)
       .then((response) => {

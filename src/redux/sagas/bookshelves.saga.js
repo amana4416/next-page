@@ -7,7 +7,7 @@ function* fetchCurrentlyReading() {
         const response = yield axios({
             method: 'GET',
             //currently reading get route in the bookshelves router
-            url: `/api/bookshelves/currently`
+            url: `/api/bookshelves/currently/last`
         })
         //store books in a reducer
         yield put({
@@ -24,7 +24,7 @@ function* fetchWantToRead() {
         //sending request to server
         const response = yield axios({
             method: 'GET',
-            url: `/api/bookshelves/want`
+            url: `/api/bookshelves/want/last`
         })
         //store books in a reducer
         yield put({
@@ -41,7 +41,7 @@ function* fetchFinishedReading() {
         //sending request to server
         const response = yield axios({
             method: 'GET',
-            url: `/api/bookshelves/finished`
+            url: `/api/bookshelves/finished/last`
         })
         //store books in a reducer
         yield put({
