@@ -24,6 +24,20 @@ function WantToRead() {
         <>
            <section className="wantToReadBackground">
                 <h2 className="bookshelfHeading">Want To Read:</h2>
+                {wantToRead.map(want => {
+                    return (
+                        <Paper
+                        key={want.book_ibsn}
+                        sx={{backgroundColor: '#B7B4A2', height:'auto', width: '160px', margin: '15px', marginBottom: '15px'}}
+                        >
+                            <img 
+                                src={want.book_cover} 
+                                alt={want.book_title}
+                            />
+
+                        </Paper>
+                    )
+                })}
 
             </section>
         </>
