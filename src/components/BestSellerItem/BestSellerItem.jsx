@@ -1,21 +1,24 @@
 import React from "react"
-
+import { useHistory } from 'react-router-dom';
 //mui imports
 import Paper from '@mui/material/Paper';
 
 function BestSellerItem({bestSeller}) {
 
+    const history = useHistory();
+
     const bookIsbn = bestSeller.primary_isbn13;
-    const bookCover = `https://storage.googleapis.com/du-prd/books/images/${bookId}.jpg`;
+    const bookCover = `https://storage.googleapis.com/du-prd/books/images/${bookIsbn}.jpg`;
     const bookTitle = bestSeller.title;
-    const bookAuthor = bestSeller.volumeInfo.authors;
-    const bookDescription = bestSeller.volumeInfo.description;
-    const bookPublishDate = bestSeller.volumeInfo.publishedDate;
-    const bookPublisher = bestSeller.volumeInfo.publisher;
+    const bookAuthor = bestSeller.author;
+    const bookDescription = bestSeller.description;
+    const bookPublishDate = bestSeller.publishedDate;
+    const bookPublisher = bestSeller.publisher;
 
 
     const showDetails = (bestSeller) => {
-        
+        console.log(bookIsbn);
+        history.push(`/details/${bookIsbn}`)
     }
 
     return (
@@ -23,7 +26,7 @@ function BestSellerItem({bestSeller}) {
             <section className="bestSellerItemBackground">
                 <Paper 
                     elevation={3}
-                    sx={{backgroundColor: '#C79A96', margin: '15px', height: '335px', width: '300px' }}
+                    sx={{backgroundColor: '#C79A96', margin: '15px', height: '300px', width: '280px' }}
                 >  
                     <img 
                         src={bookCover} 
