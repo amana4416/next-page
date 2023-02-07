@@ -12,7 +12,6 @@ function FinishedReading() {
 
     //call the books marked as 'finished reading' from the redux store
     const finishedReading = useSelector(store => store.bookshelves.finishedReading);
-    console.log('here are the books you have finished reading:', finishedReading);
 
     //we're going to use useEffect in this component because we want the bookshelf to populate with
     //books marked as 'finished reading' as soon as the profile page opens
@@ -27,7 +26,19 @@ function FinishedReading() {
         <>
             <section className="finishedReadingBackground">
                 <h2 className="bookshelfHeading">Finished Reading:</h2>
-                
+                {finishedReading.map(finished => {
+                    return (
+                        <Paper
+                        key={finished.book_ibsn}
+                        sx={{backgroundColor: '#B7B4A2', height:'auto', width: '160px', margin: '15px', marginBottom: '15px'}}
+                        >
+                            <img 
+                                src={finished.book_cover} 
+                                alt={finished.book_title}
+                            />
+                        </Paper>
+                    )
+                })}
             </section>
         </>
     )

@@ -36,11 +36,9 @@ function CurrentlyReading() {
                                 src={currently.book_cover} 
                                 alt={currently.book_title}
                             />
-
                         </Paper>
                     )
                 })}
-
             </section>
         </>
     )
