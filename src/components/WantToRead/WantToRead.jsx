@@ -12,8 +12,9 @@ function WantToRead() {
 
     //call the books marked as 'want to read' from the redux store
     const wantToRead = useSelector(store => store.bookshelves.wantToRead);
-    console.log('here are the books we want to read:', wantToRead);
 
+    //we're going to use useEffect in this component because we want the bookshelf to populate with
+    //books marked as 'want to read' as soon as the profile page opens
     useEffect(() => {
         dispatch({
             type: 'SAGA/FETCH_WANT_TO_READ'

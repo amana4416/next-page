@@ -1,6 +1,7 @@
 import React from "react";
 import CurrentlyReading from "../CurrentlyReading/CurrentlyReading";
 import WantToRead from "../WantToRead/WantToRead";
+import FinishedReading from "../FinishedReading/FinishedReading";
 
 
 function ProfilePage() {
@@ -9,6 +10,7 @@ function ProfilePage() {
         <>
             <CurrentlyReading />
             <WantToRead />
+            <FinishedReading />
         </>
     )
 }
