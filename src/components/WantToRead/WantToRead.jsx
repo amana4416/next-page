@@ -21,9 +21,16 @@ function WantToRead() {
         })
     }, [])
 
+     //when you click anywhere on the want to read bookshelf,
+    //you will be navigated to a new page that shows every book 
+    //that is marked as want to read
+    const openWantToRead = () => {
+        console.log('you opened the want to read bookshelf');
+        history.push(`/wantToReadOpen`)
+    }
     return (
         <>
-           <section className="wantToReadBackground">
+           <section className="wantToReadBackground" onClick={openWantToRead}>
                 <h2 className="bookshelfHeading">Want To Read:</h2>
                 {wantToRead.map(want => {
                     return (

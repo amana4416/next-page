@@ -21,8 +21,11 @@ function CurrentlyReading() {
         })
     }, [])
 
+    //when you click anywhere on the currently reading bookshelf,
+    //you will be navigated to a new page that shows every book 
+    //that is marked as currently reading
     const openCurrentlyReading = () => {
-        console.log('you opened a bookshelf');
+        console.log('you opened the currently reading bookshelf');
         history.push(`/currentlyReadingOpen`)
     }
 
@@ -37,6 +40,7 @@ function CurrentlyReading() {
                         sx={{backgroundColor: '#B7B4A2', height:'auto', width: '160px', margin: '15px', marginBottom: '15px', display: 'inline-flex'}}
                         >
                             <img 
+                                className="profileCurrentlyLast"
                                 src={currently.book_cover} 
                                 alt={currently.book_title}
                             />
