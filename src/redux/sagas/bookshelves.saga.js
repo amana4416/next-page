@@ -7,6 +7,7 @@ function* fetchLastCurrentlyReading() {
         const response = yield axios({
             method: 'GET',
             //currently reading get route in the bookshelves router
+            //to get the last 6 books
             url: `/api/bookshelves/currently/last`
         })
         //store books in a reducer
@@ -15,7 +16,7 @@ function* fetchLastCurrentlyReading() {
             payload: response.data
         })
     } catch {
-        console.log('error fetching books you are currently reading');
+        console.log('error fetching the last 6 books you are currently reading');
     }
 }
 
@@ -32,7 +33,7 @@ function* fetchLastWantToRead() {
             payload: response.data
         })
     } catch {
-        console.log('error fetching books you want to read');
+        console.log('error fetching the last 6 books you want to read');
     }
 }
 
@@ -49,7 +50,7 @@ function* fetchLastFinishedReading() {
             payload: response.data
         })
     } catch {
-        console.log('error fetching books you finished reading');
+        console.log('error fetching the last 6 books you finished reading');
     }
 }
 
