@@ -6,6 +6,10 @@ function CurrentlyReadingOpen() {
 
     const dispatch = useDispatch();
 
+    //call all the books marked as currently reading from the redux store
+    const currentlyReading = useSelector(store => store.openBookshelf.currentlyReading);
+    console.log(currentlyReading);
+
     //using useEffect so all books marked as 'currently reading' can be loaded as soon
     //you 'open' the bookshelf
     useEffect(() => {

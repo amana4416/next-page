@@ -9,6 +9,11 @@ function* fetchCurrentlyReading() {
             //this route will get all the books marked as currently reading
             url: `/api/bookshelves/currently`
         })
+        //store books in a reducer
+        yield put({
+            type: 'SET_CURRENTLY_READING',
+            payload: response.data
+        })
     } catch {
         console.log('error fetching all books you are currently reading');
     }

@@ -12,7 +12,7 @@ function* fetchLastCurrentlyReading() {
         })
         //store books in a reducer
         yield put({
-            type: 'SET_CURRENTLY_READING',
+            type: 'SET_LAST_CURRENTLY_READING',
             payload: response.data
         })
     } catch {
