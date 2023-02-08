@@ -78,7 +78,8 @@ router.get('/currently', (req, res) => {
     //selecting books marked as 'currently reading' from the database
     const sqlQuery = `
       SELECT * FROM "user_library"
-          WHERE "bookshelf" = 1;
+          WHERE "bookshelf" = 1
+          ORDER BY "id" DESC;
     `;
     pool.query(sqlQuery)
       .then((response) => {

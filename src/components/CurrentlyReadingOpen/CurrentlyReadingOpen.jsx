@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import './CurrentlyReadingOpen.css';
+//mui imports
+import Paper from '@mui/material/Paper';
 
 function CurrentlyReadingOpen() {
 
@@ -23,7 +25,19 @@ function CurrentlyReadingOpen() {
         <>
             <h2>Currently Reading</h2>
             <section className="currentlyReadingOpenBackground">
-                <h1>heyo</h1>
+            {currentlyReading.map(currently => {
+                    return (
+                        <Paper
+                        key={currently.id}
+                        sx={{backgroundColor: '#B7B4A2', height:'auto', width: '180px', margin: '15px', marginBottom: '15px', display: 'inline-flex'}}
+                        >
+                            <img 
+                                src={currently.book_cover} 
+                                alt={currently.book_title}
+                            />
+                        </Paper>
+                    )
+                })}
             </section>
         </>
     )
