@@ -116,8 +116,8 @@ router.get('/want', (req, res) => {
       })
 });
 
-//this route will get all books in bookshelf 2
-//bookshelf 2 is the finished reading bookshelf
+//this route will get all books in bookshelf 3
+//bookshelf 3 is the finished reading bookshelf
 router.get('/finished', (req, res) => {
     console.log('fetching books you finished');
     //selecting books marked as 'finished reading' from the database

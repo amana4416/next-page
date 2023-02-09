@@ -31,7 +31,7 @@ function WantToReadOpen() {
                         sx={{backgroundColor: '#B7B4A2', height:'auto', width: '180px', margin: '15px', marginBottom: '15px', paddingLeft: '5px', display: 'inline-flex'}}
                         >
                             <img 
-                                className="wantToReadOpen"
+                                className="wantOpen"
                                 src={want.book_cover} 
                                 alt={want.book_title}
                             />
