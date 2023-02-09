@@ -13,7 +13,7 @@ function WantToReadOpen() {
     //books marked as 'want to read' as soon as the profile page opens
     useEffect(() => {
         dispatch({
-            type: 'SAGA/FETCH_WANT_TO_READ'
+            type: 'SAGA/FETCH_ALL_WANT_TO_READ'
         })
     }, [])
 
