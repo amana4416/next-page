@@ -24,7 +24,7 @@ function* fetchWantToRead() {
         //sending request to server
         const response = yield axios({
             method: 'GET',
-            //this route will get all the books marked as currently reading
+            //this route will get all the books marked as want to read
             url: `/api/bookshelves/want`
         })
         //store books in a reducer
@@ -37,11 +37,28 @@ function* fetchWantToRead() {
     }
 }
 
-
+function* fetchFinishedReading() {
+    try {
+        //sending request to server
+        const response = yield axios({
+            method: 'GET',
+            //this route will get all the books marked as finished reading
+            url: `/api/bookshelves/finished`
+        })
+        //store books in a reducer
+        yield put({
+            type: 'SET_FINISHED_READING',
+            payload: response.data
+        })
+    } catch {
+        console.log('error fetching all books you finished reading');
+    }
+}
 
 function* openBookshelvesSaga() {
     yield takeLatest('SAGA/FETCH_ALL_CURRENTLY_READING', fetchCurrentlyReading);
     yield takeLatest('SAGA/FETCH_ALL_WANT_TO_READ', fetchWantToRead);
+    yield takeLatest('SAGA/FETCH_ALL_FINISHED_READING', fetchFinishedReading);
 }
 
 export default openBookshelvesSaga;
