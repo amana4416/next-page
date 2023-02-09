@@ -7,31 +7,34 @@ function BestSellerItem({bestSeller}) {
 
     const history = useHistory();
 
-    const book_isbn = bestSeller.primary_isbn13;
-    const book_cover = `https://storage.googleapis.com/du-prd/books/images/${book_isbn}.jpg`;
+    // const book_isbn = bestSeller.primary_isbn13;
+    const book_cover = bestSeller.book_image;
     const book_title = bestSeller.title;
     const book_author = bestSeller.author;
     const book_description = bestSeller.description;
 
-
-    const showDetails = (bestSeller) => {
-        console.log(book_isbn);
-        history.push(`/bestSellerDetails/${book_isbn}`)
-    }
-
     return (
         <>
+            <div className="bestSellerInfo">
                 <Paper 
                     elevation={3}
-                    sx={{backgroundColor: '#B7B4A2', height:'auto', width: '180px', margin: '15px', marginBottom: '15px', padding: '15px',  display: 'inline-flex'}}
+                    sx={{backgroundColor: '#B7B4A2', height:'auto', width: '180px', margin: '35px', marginTop: '15px', padding: '15px', display: 'inline-block'}}
                 >  
                     <img 
-                        className="bestSellerCovers"
+                        className="bestSellerCover"
                         src={book_cover} 
                         alt={book_title}
-                        onClick={(e) => {showDetails(bestSeller)}}
                     /> 
                 </Paper>
+                <Paper 
+                    elevation={3}
+                    sx={{backgroundColor: '#B7B4A2', height: '150px', width: '500px', margin: '45px', marginTop: '15px', padding: '15px', display: 'inline-block', verticalAlign: 'top'}}
+                >
+                    <h3>{book_title}</h3>
+                    <h4>Written by: {book_author}</h4>
+                    <p>{book_description}</p>
+                </Paper>
+            </div>
         </>
     )
 }

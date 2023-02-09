@@ -1,5 +1,19 @@
-.bestSellerCovers {
+/* .bestSellerCover {
     height: 240px;
     width: 180px;
     padding: 15px;
+} */
+
+.bestSellerInfo {
+    display: inline-block;
+    vertical-align: top;
 }
+
+
+/* .bestSellerCovers {
+    display: inline-flex;
+} */
+
+/* .bestSellerCovers {
+    display: inline-flex;
+} */
