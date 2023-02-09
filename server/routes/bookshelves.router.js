@@ -116,6 +116,28 @@ router.get('/want', (req, res) => {
       })
 });
 
+//this route will get all books in bookshelf 2
+//bookshelf 2 is the finished reading bookshelf
+router.get('/finished', (req, res) => {
+    console.log('fetching books you finished');
+    //selecting books marked as 'finished reading' from the database
+    const sqlQuery = `
+      SELECT * FROM "user_library"
+          WHERE "bookshelf" = 3
+          ORDER BY "id" DESC;
+    `;
+    pool.query(sqlQuery)
+      .then((response) => {
+          console.log('here are the all books you finished reading');
+        //console.log(response.rows);
+          res.send(response.rows);
+      })
+      .catch((error) => {
+          console.log('error in /api/bookshelves/finished', error);
+          res.sendStatus(500);
+      })
+});
+
 
 router.post('/', (req, res) => {
   // POST route code here
