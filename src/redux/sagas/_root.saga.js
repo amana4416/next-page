@@ -6,6 +6,7 @@ import searchBooksSaga from './search.saga';
 import bestSellersSaga from './bestSellers.saga';
 import bookshelvesSaga from './bookshelves.saga';
 import openBookshelvesSaga from './openBookshelves.saga';
+import detailsSaga from './details.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +24,6 @@ export default function* rootSaga() {
     bestSellersSaga(),
     bookshelvesSaga(),
     openBookshelvesSaga(),
+    detailsSaga(),
   ]);
 }

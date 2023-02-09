@@ -7,18 +7,16 @@ function BestSellerItem({bestSeller}) {
 
     const history = useHistory();
 
-    const bookIsbn = bestSeller.primary_isbn13;
-    const bookCover = `https://storage.googleapis.com/du-prd/books/images/${bookIsbn}.jpg`;
-    const bookTitle = bestSeller.title;
-    const bookAuthor = bestSeller.author;
-    const bookDescription = bestSeller.description;
-    const bookPublishDate = bestSeller.publishedDate;
-    const bookPublisher = bestSeller.publisher;
+    const book_isbn = bestSeller.primary_isbn13;
+    const book_cover = `https://storage.googleapis.com/du-prd/books/images/${book_isbn}.jpg`;
+    const book_title = bestSeller.title;
+    const book_author = bestSeller.author;
+    const book_description = bestSeller.description;
 
 
     const showDetails = (bestSeller) => {
-        console.log(bookIsbn);
-        history.push(`/details/${bookIsbn}`)
+        console.log(book_isbn);
+        history.push(`/bestSellerDetails/${book_isbn}`)
     }
 
     return (
@@ -29,8 +27,8 @@ function BestSellerItem({bestSeller}) {
                 >  
                     <img 
                         className="bestSellerCovers"
-                        src={bookCover} 
-                        alt={bookTitle}
+                        src={book_cover} 
+                        alt={book_title}
                         onClick={(e) => {showDetails(bestSeller)}}
                     /> 
                 </Paper>
