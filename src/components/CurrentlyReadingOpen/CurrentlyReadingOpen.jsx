@@ -10,7 +10,6 @@ function CurrentlyReadingOpen() {
 
     //call all the books marked as currently reading from the redux store
     const currentlyReading = useSelector(store => store.openBookshelf.currentlyReading);
-    console.log(currentlyReading);
 
     //using useEffect so all books marked as 'currently reading' can be loaded as soon
     //you 'open' the bookshelf
@@ -29,7 +28,7 @@ function CurrentlyReadingOpen() {
                     return (
                         <Paper
                         key={currently.id}
-                        sx={{backgroundColor: '#B7B4A2', height:'auto', width: '180px', margin: '15px', marginBottom: '15px', display: 'inline-flex'}}
+                        sx={{backgroundColor: '#B7B4A2', height:'auto', width: '180px', margin: '15px', marginBottom: '15px', paddingLeft: '5px', display: 'inline-flex'}}
                         >
                             <img 
                                 className="currentlyOpen"
