@@ -21,10 +21,17 @@ function FinishedReading() {
         })
     }, [])
 
+     //when you click anywhere on the finished reading bookshelf,
+    //you will be navigated to a new page that shows every book 
+    //that is marked as finished reading
+    const openFinishedReading = () => {
+        console.log('you opened the finished reading bookshelf');
+        history.push(`/finishedReadingOpen`)
+    }
 
     return (
         <>
-            <section className="finishedReadingBackground">
+            <section className="finishedReadingBackground" onClick={openFinishedReading}>
                 <h2 className="bookshelfHeading">Finished Reading:</h2>
                 {finishedReading.map(finished => {
                     return (

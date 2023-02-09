@@ -23,6 +23,7 @@ import BookDetails from '../BookDetails/BookDetails';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import CurrentlyReadingOpen from '../CurrentlyReadingOpen/CurrentlyReadingOpen';
 import WantToReadOpen from '../WantToReadOpen/WantToReadOpen';
+import FinishedReadingOpen from '../FinishedReadingOpen/FinishedReadingOpen';
 
 import './App.css';
 
@@ -94,6 +95,14 @@ function App() {
             path="/wantToReadOpen"
           >
             <WantToReadOpen />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows the open Finished Reading bookshelf else shows LoginPage
+            exact
+            path="/finishedReadingOpen"
+          >
+            <FinishedReadingOpen />
           </ProtectedRoute>
 
           <ProtectedRoute
