@@ -16,7 +16,11 @@ function SearchItem({results}) {
                     sx={{backgroundColor: '#808274', margin: '15px', height: '335px', width: '300px', }}
                 >
                     <h4>{bookTitle}</h4>
-                    <img src={bookCover} alt={bookTitle} />
+                    <img 
+                        className='searchBookCovers'
+                        src={bookCover} 
+                        alt={bookTitle} 
+                    />
 
                 </Paper>
             </section>

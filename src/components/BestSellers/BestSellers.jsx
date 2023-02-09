@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import BestSellerItem from '../BestSellerItem/BestSellerItem';
 import './BestSellers.css';
+import BestSellerItem from '../BestSellerItem/BestSellerItem';
 
 function BestSellers() {
 

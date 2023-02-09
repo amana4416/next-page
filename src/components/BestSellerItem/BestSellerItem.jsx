@@ -23,18 +23,17 @@ function BestSellerItem({bestSeller}) {
 
     return (
         <>
-            <section className="bestSellerItemBackground">
                 <Paper 
                     elevation={3}
-                    sx={{backgroundColor: '#C79A96', margin: '15px', height: '300px', width: '280px' }}
+                    sx={{backgroundColor: '#B7B4A2', height:'auto', width: '180px', margin: '15px', marginBottom: '15px', padding: '15px',  display: 'inline-flex'}}
                 >  
                     <img 
+                        className="bestSellerCovers"
                         src={bookCover} 
                         alt={bookTitle}
                         onClick={(e) => {showDetails(bestSeller)}}
                     /> 
                 </Paper>
-            </section>
         </>
     )
 }

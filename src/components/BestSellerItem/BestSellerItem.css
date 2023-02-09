@@ -1,8 +1,5 @@
-.bestSellerItemBackground {
-    display: inline-flex;
-    align-items: center;
-}
-
-img {
-    align-items: center;
+.bestSellerCovers {
+    height: 240px;
+    width: 180px;
+    padding: 15px;
 }
