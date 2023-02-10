@@ -3,8 +3,17 @@
     align-items: center;
 }
 
-.searchBookCovers {
-    align-items: center;
-    height: 250px;
-    width: auto;
+.searchResultBooks {
+    display: inline-flex;
 }
+
+.searchResultCover {
+    height: 400px;
+    width: 550px;
+}
+
+/* .searchBookCovers{
+    width: 1500px;
+    height: 200px;
+    padding: 15px;
+} */

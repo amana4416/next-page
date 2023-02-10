@@ -145,11 +145,11 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   const newBook = req.body;
   const sqlQuery = `
     INSERT INTO "user_library" 
-    ("book_ibsn", "book_title", "book_author", "book_cover", "book_description", "bookshelf", "user_id")
+    ("book_isbn", "book_title", "book_author", "book_cover", "book_description", "bookshelf", "user_id")
       VALUES
       ($1, $2, $3, $4, $5, $6, $7);
   `
-  const sqlValues = [newBook.book_ibsn, newBook.book_title, newBook.book_author, newBook.book_cover, newBook.book_description, newBook.bookshelf, newBook.user_id];
+  const sqlValues = [newBook.book_isbn, newBook.book_title, newBook.book_author, newBook.book_cover, newBook.book_description, newBook.bookshelf, newBook.user_id];
   pool.query(sqlQuery, sqlValues)
     .then((response) => {
       res.sendStatus(201);

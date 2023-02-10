@@ -11,7 +11,7 @@ function* addToBookshelf(action) {
             method: 'POST',
             url: '/api/bookshelves',
             data: {
-                book_ibsn: newBook.book_ibsn,
+                book_isbn: newBook.book_isbn,
                 book_title: newBook.book_title,
                 book_author: newBook.book_author,
                 book_cover: newBook.book_cover,
@@ -21,12 +21,12 @@ function* addToBookshelf(action) {
             }
         })
     } catch (error) {
-        console.log('error in addToBookshelf', error)
+        console.log('error in addToBookshelf', error);
     }
 }
 
 function* addToBookshelfSaga() {
-    yield takeLatest('SAGA/ADD_BEST_SELLER_TO_BOOKSHELF', addToBookshelf);
+    yield takeLatest('SAGA/ADD_TO_BOOKSHELF', addToBookshelf);
 }
 
 export default addToBookshelfSaga;

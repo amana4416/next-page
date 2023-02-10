@@ -16,7 +16,7 @@ function* searchBooks(action) {
             type: 'SET_SEARCH_RESULTS',
             payload: response.data
         })
-    } catch {
+    } catch (error) {
         console.log('could not find', error);
     }
 }

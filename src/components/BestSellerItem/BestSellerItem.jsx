@@ -1,6 +1,7 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux";
 import swal from 'sweetalert';
+import './BestSellerItem.css';
 //mui imports
 import Paper from '@mui/material/Paper';
 import InputLabel from '@mui/material/InputLabel';
@@ -10,24 +11,24 @@ import Select from '@mui/material/Select';
 
 function BestSellerItem({bestSeller}) {
 
-    const user = useSelector((store) => store.user);
-
     const dispatch = useDispatch();
 
-    const book_ibsn = bestSeller.primary_isbn13;
-    const book_cover = bestSeller.book_image;
+    const user = useSelector((store) => store.user);
+
+    const book_isbn = bestSeller.primary_isbn13;
     const book_title = bestSeller.title;
     const book_author = bestSeller.author;
+    const book_cover = bestSeller.book_image;
     const book_description = bestSeller.description;
 
     const addToBookShelf = (event) => {
         console.log('user', user.id, user.username, 'is adding', book_title, 'to bookshelf', event.target.value)
         dispatch({
-            type: 'SAGA/ADD_BEST_SELLER_TO_BOOKSHELF',
+            type: 'SAGA/ADD_TO_BOOKSHELF',
             //we're adding a book to our bookshelf so we need to send all this info along
             //to so we can add the book to our database!
             payload: {
-                book_ibsn: book_ibsn,
+                book_isbn: book_isbn,
                 book_title: book_title,
                 book_author: book_author,
                 book_cover: book_cover,
@@ -61,7 +62,7 @@ function BestSellerItem({bestSeller}) {
                             <h4>Written by: {book_author}</h4>
                             <p>{book_description}</p>
                         </section>
-                        <section className="bookshelfMenu">
+                        <section className="bestSellerBookshelfMenu">
                             <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
                                 <InputLabel id="demo-simple-select-standard-label">Select Bookshelf</InputLabel>
                                 <Select
