@@ -14,8 +14,8 @@ function* fetchCurrentlyReading() {
             type: 'SET_CURRENTLY_READING',
             payload: response.data
         })
-    } catch {
-        console.log('error fetching all books you are currently reading');
+    } catch (error) {
+        console.log('error fetching all books you are currently reading', error);
     }
 }
 
@@ -32,8 +32,8 @@ function* fetchWantToRead() {
             type: 'SET_WANT_TO_READ',
             payload: response.data
         })
-    } catch {
-        console.log('error fetching all books you want to read');
+    } catch (error) {
+        console.log('error fetching all books you want to read', error);
     }
 }
 
@@ -50,8 +50,8 @@ function* fetchFinishedReading() {
             type: 'SET_FINISHED_READING',
             payload: response.data
         })
-    } catch {
-        console.log('error fetching all books you finished reading');
+    } catch (error) {
+        console.log('error fetching all books you finished reading', error);
     }
 }
 
