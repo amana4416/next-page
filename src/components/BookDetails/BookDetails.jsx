@@ -6,6 +6,10 @@ import './BookDetails.css';
 //mui imports
 import Paper from '@mui/material/Paper'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 function BookDetails() {
 
@@ -36,12 +40,21 @@ function BookDetails() {
             payload: bookDetails.id
         })
         //navigate back to profile
-        history.push('/profile')
+        history.push('/profile');
         //alert user book has been deleted
         swal({
             icon: 'success',
             title: 'Deleted book from your bookshelf'
         })
+    }
+
+    const changeBookshelf = (id) => {
+        console.log('you moved', 'bookDetails.book_title', 'to another bookshelf');
+        dispatch({
+            type: 'SAGA/CHANGE_BOOKSHELF',
+            payload: bookDetails.id
+        })
+        history.push('/profile');
     }
 
     return (
@@ -70,8 +83,20 @@ function BookDetails() {
                             <DeleteForeverIcon
                                 onClick={() => deleteFromBookshelf(bookDetails.id)}
                             >
-
                             </DeleteForeverIcon>
+                            <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
+                                <InputLabel id="demo-simple-select-standard-label">Select Bookshelf</InputLabel>
+                                <Select
+                                labelId="demo-simple-select-standard-label"
+                                id="demo-simple-select-standard"
+                                value={''}
+                                onChange={() => {changeBookshelf(bookDetails.id)}}
+                                >
+                                    <MenuItem value={1}>Currently Reading</MenuItem>
+                                    <MenuItem value={2}>Want To Read</MenuItem>
+                                    <MenuItem value={3}>Finished</MenuItem>
+                                </Select>
+                            </FormControl>
                         </section>
                     </Paper>
                 </section>
