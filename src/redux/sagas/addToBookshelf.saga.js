@@ -25,11 +25,6 @@ function* addToBookshelf(action) {
     }
 }
 
-
-
-
-
-
 function* addToBookshelfSaga() {
     yield takeLatest('SAGA/ADD_BEST_SELLER_TO_BOOKSHELF', addToBookshelf);
 }

@@ -1,5 +1,6 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux";
+import swal from 'sweetalert';
 //mui imports
 import Paper from '@mui/material/Paper';
 import InputLabel from '@mui/material/InputLabel';
@@ -34,6 +35,11 @@ function BestSellerItem({bestSeller}) {
                 bookshelf: event.target.value,
                 user_id: user.id
             }
+        })
+        swal({
+            title: 'Success!',
+            text:'You added this book to your library.',
+            icon: 'success'
         })
     }
 

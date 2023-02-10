@@ -140,8 +140,8 @@ router.get('/finished', (req, res) => {
 
 //making it so only authenticated users are able to add to their bookshelves
 router.post('/', rejectUnauthenticated, (req, res) => {
-  console.log('here is our user', req.user.id);
-  console.log('here is the book we are adding',req.body);
+  // console.log('here is our user', req.user.id);
+  // console.log('here is the book we are adding',req.body);
   const newBook = req.body;
   const sqlQuery = `
     INSERT INTO "user_library" 
