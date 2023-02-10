@@ -146,8 +146,8 @@ router.get('/:id', (req, res) => {
     SELECT * FROM "user_library"
       WHERE "id" = $1;
   `;
-  const sqlValues = [bookId];
-  pool.query(sqlQuery, sqlValues)
+  const sqlValue = [bookId];
+  pool.query(sqlQuery, sqlValue)
     .then((response) => {
       console.log('here are the book details you requested:', response.rows[0]);
       res.send(response.rows[0]);
@@ -158,6 +158,25 @@ router.get('/:id', (req, res) => {
     })
   
 });
+
+//this delete route will delete book from bookshelf (ie "user_library" table in database)
+router.delete('/:id', (req, res) => {
+  let bookToDelete = req.params.id;
+  const sqlQuery = `
+    DELETE FROM "user_library"
+      WHERE "id" = $1;
+  `;
+  const sqlValue = [bookToDelete];
+  pool.query(sqlQuery, sqlValue)
+    .then((response) => {
+      console.log('deleted book with id', bookToDelete, 'from the database');
+      res.sendStatus(201);
+    })
+    .catch((error) => {
+      console.log('error in /api/bookshelves DELETE', error);
+      res.sendStatus(500);
+    })
+})
 
 //making it so only authenticated users are able to add to their bookshelves
 router.post('/', rejectUnauthenticated, (req, res) => {

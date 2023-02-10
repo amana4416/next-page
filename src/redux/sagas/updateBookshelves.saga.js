@@ -8,7 +8,7 @@ function* deleteFromBookshelf(action) {
         console.log('we deleted book with id:', bookToDelete);
         const response = yield axios({
             method: 'DELETE',
-            payload: bookToDelete
+            url: `/api/bookshelves/${bookToDelete}`
         })
 
     } catch (error) {
