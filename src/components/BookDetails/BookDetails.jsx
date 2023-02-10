@@ -52,7 +52,10 @@ function BookDetails() {
         console.log('you moved', 'bookDetails.book_title', 'to another bookshelf');
         dispatch({
             type: 'SAGA/CHANGE_BOOKSHELF',
-            payload: bookDetails.id
+            payload: {
+                id: bookDetails.id,
+                bookshelf: event.target.value
+            }
         })
         history.push('/profile');
     }

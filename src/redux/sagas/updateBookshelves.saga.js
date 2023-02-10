@@ -16,8 +16,26 @@ function* deleteFromBookshelf(action) {
     }
 }
 
+//need access to action.payload again
+function* changeBookshelf(action) {
+    try {
+        const bookToChange = action.payload;
+        console.log('we moved book with id', bookToChange, 'to another bookshelf');
+        const response = yield axios({
+            method: 'PUT',
+            url: `/api/bookshelves/${bookToChange.id}`,
+            data: {
+                bookshelf: bookToChange.bookshelf
+            }
+        })
+    } catch (error) {
+        console.log('error changing bookshelf', error)
+    }
+}
+
 function* updateBookshelvesSaga() {
     yield takeLatest('SAGA/DELETE_FROM_BOOKSHELF', deleteFromBookshelf);
+    yield takeLatest('SAGA/CHANGE_BOOKSHELF', changeBookshelf);
 }
 
 export default updateBookshelvesSaga;
