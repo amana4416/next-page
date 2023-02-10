@@ -13,7 +13,7 @@ function* fetchBestSellers() {
             type: 'SET_BEST_SELLERS',
             payload: response.data
         })
-        console.log('here are our best sellers', response.data)
+        // console.log('here are our best sellers', response.data)
     } catch {
         console.log('error fetching best sellers', error);
     }

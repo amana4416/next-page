@@ -1,7 +1,7 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-
+const { rejectUnauthenticated } = require('../modules/authentication-middleware')
 
 //this get route will get fetch the last 6 books in bookshelf 1
 //bookshelf 1 is the 'currently reading' bookshelf
@@ -138,9 +138,26 @@ router.get('/finished', (req, res) => {
       })
 });
 
-
-router.post('/', (req, res) => {
-  // POST route code here
+//making it so only authenticated users are able to add to their bookshelves
+router.post('/', rejectUnauthenticated, (req, res) => {
+  console.log('here is our user', req.user.id);
+  console.log('here is the book we are adding',req.body);
+  const newBook = req.body;
+  const sqlQuery = `
+    INSERT INTO "user_library" 
+    ("book_ibsn", "book_title", "book_author", "book_cover", "book_description", "bookshelf", "user_id")
+      VALUES
+      ($1, $2, $3, $4, $5, $6, $7);
+  `
+  const sqlValues = [newBook.book_ibsn, newBook.book_title, newBook.book_author, newBook.book_cover, newBook.book_description, newBook.bookshelf, newBook.user_id];
+  pool.query(sqlQuery, sqlValues)
+    .then((response) => {
+      res.sendStatus(201);
+    })
+    .catch((error) => {
+      console.log('error in /api/bookshelves POST', error);
+      res.sendStatus(500);
+    })
 });
 
 module.exports = router;
