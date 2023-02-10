@@ -159,25 +159,6 @@ router.get('/:id', (req, res) => {
   
 });
 
-//this delete route will delete book from bookshelf (ie "user_library" table in database)
-router.delete('/:id', (req, res) => {
-  let bookToDelete = req.params.id;
-  const sqlQuery = `
-    DELETE FROM "user_library"
-      WHERE "id" = $1;
-  `;
-  const sqlValue = [bookToDelete];
-  pool.query(sqlQuery, sqlValue)
-    .then((response) => {
-      console.log('deleted book with id', bookToDelete, 'from the database');
-      res.sendStatus(201);
-    })
-    .catch((error) => {
-      console.log('error in /api/bookshelves DELETE', error);
-      res.sendStatus(500);
-    })
-})
-
 //making it so only authenticated users are able to add to their bookshelves
 router.post('/', rejectUnauthenticated, (req, res) => {
   // console.log('here is our user', req.user.id);
@@ -199,5 +180,32 @@ router.post('/', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500);
     })
 });
+
+//this delete route will delete book from bookshelf (ie "user_library" table in database)
+router.delete('/:id', (req, res) => {
+  const bookToDelete = req.params.id;
+  const sqlQuery = `
+    DELETE FROM "user_library"
+      WHERE "id" = $1;
+  `;
+  const sqlValue = [bookToDelete];
+  pool.query(sqlQuery, sqlValue)
+    .then((response) => {
+      console.log('deleted book with id', bookToDelete, 'from the database');
+      res.sendStatus(201);
+    })
+    .catch((error) => {
+      console.log('error in /api/bookshelves DELETE', error);
+      res.sendStatus(500);
+    })
+})
+
+//this put route will change a books bookshelf
+router.put('/:id', (req, res) => {
+  const bookToUpdate = req.params.id;
+  const newBookshelf = req.body.bookshelf;
+  console.log('new bookshelf', newBookshelf);
+})
+
 
 module.exports = router;

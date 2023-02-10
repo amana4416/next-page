@@ -20,7 +20,7 @@ function* deleteFromBookshelf(action) {
 function* changeBookshelf(action) {
     try {
         const bookToChange = action.payload;
-        console.log('we moved book with id', bookToChange, 'to another bookshelf');
+        console.log('we moved book with id', bookToChange.id, 'to another bookshelf');
         const response = yield axios({
             method: 'PUT',
             url: `/api/bookshelves/${bookToChange.id}`,

@@ -48,8 +48,8 @@ function BookDetails() {
         })
     }
 
-    const changeBookshelf = (id) => {
-        console.log('you moved', 'bookDetails.book_title', 'to another bookshelf');
+    const changeBookshelf = (id, event) => {
+        console.log('you moved', bookDetails.book_title, 'to bookshelf', event.target.value);
         dispatch({
             type: 'SAGA/CHANGE_BOOKSHELF',
             payload: {
@@ -57,7 +57,8 @@ function BookDetails() {
                 bookshelf: event.target.value
             }
         })
-        history.push('/profile');
+        //navigate user back to profile page
+        // history.push('/profile');
     }
 
     return (
@@ -90,10 +91,10 @@ function BookDetails() {
                             <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
                                 <InputLabel id="demo-simple-select-standard-label">Select Bookshelf</InputLabel>
                                 <Select
-                                labelId="demo-simple-select-standard-label"
-                                id="demo-simple-select-standard"
-                                value={''}
-                                onChange={() => {changeBookshelf(bookDetails.id)}}
+                                    labelId="demo-simple-select-standard-label"
+                                    id="demo-simple-select-standard"
+                                    value={''}
+                                    onChange={(event) => {changeBookshelf(bookDetails.id, event)}}
                                 >
                                     <MenuItem value={1}>Currently Reading</MenuItem>
                                     <MenuItem value={2}>Want To Read</MenuItem>
