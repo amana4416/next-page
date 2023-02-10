@@ -28,7 +28,6 @@ function CurrentlyReadingOpen() {
         history.push(`/bookDetails/${currently.id}`)
     }
 
-
     return (
         <>
             <h2>Currently Reading</h2>

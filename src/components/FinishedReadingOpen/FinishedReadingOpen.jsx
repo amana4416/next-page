@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './FinishedReadingOpen.css';
 //mui imports
 import Paper from '@mui/material/Paper';
@@ -7,6 +8,7 @@ import Paper from '@mui/material/Paper';
 function FinishedReadingOpen() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     //call all the books marked as finished reading from the redux store
     const finishedReading = useSelector(store => store.openBookshelf.finishedReading);
@@ -19,6 +21,12 @@ function FinishedReadingOpen() {
         })
     })
 
+    //when you click on a book cover in the opened finished reading bookshelf,
+    //you will be navigated to a details page
+    const showBookDetails = (finished) => {
+        console.log(finished.id)
+        history.push(`/bookDetails/${finished.id}`)
+    }
 
     return (
         <>
@@ -34,6 +42,7 @@ function FinishedReadingOpen() {
                                 className="finishedOpen"
                                 src={finished.book_cover} 
                                 alt={finished.book_title}
+                                onClick={(e) => {showBookDetails(finished)}} 
                             />
                         </Paper>
                     )
