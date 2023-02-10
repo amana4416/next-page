@@ -12,14 +12,14 @@ function* fetchBookDetails(action) {
             method: 'GET',
             url: `/api/bookshelves/${bookId}`
         })
-
+        yield put({
+            type: 'SET_BOOK_DETAILS',
+            paylod: response.data
+        })
     } catch (error) {
         console.log('error fetching book details', error)
     }
 }
-
-
-
 
 function* detailsSaga() {
     yield takeLatest('SAGA/FETCH_BOOK_DETAILS', fetchBookDetails);

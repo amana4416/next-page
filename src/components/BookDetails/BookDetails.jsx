@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './BookDetails.css';
 //mui imports
 import Paper from '@mui/material/Paper'
@@ -11,7 +11,7 @@ function BookDetails() {
     const dispatch = useDispatch();
     const params = useParams();
 
-    //call best sellers from the redux store
+    //call bookDetails from the redux store
     
 
 
@@ -22,14 +22,12 @@ function BookDetails() {
             type: 'SAGA/FETCH_BOOK_DETAILS',
             payload: bookId
         })
+        return ({
+            type: 'CLEAR_BOOK_DETAILS'
+        })
     }, [params.id]) //putting params.id in the bracket allows us to refresh the page and still
     //show the details for the same book. the BestSellerDetails will show the same book details until
     //until it is given a new params.id
-    
-
-    // const bestSellers = () => {
-        
-    // }
 
     return (
         <>
