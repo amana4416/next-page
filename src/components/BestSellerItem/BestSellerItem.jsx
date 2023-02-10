@@ -1,5 +1,5 @@
 import React from "react"
-import { useHistory } from 'react-router-dom';
+import { useDispatch } from "react-redux";
 //mui imports
 import Paper from '@mui/material/Paper';
 import InputLabel from '@mui/material/InputLabel';
@@ -9,55 +9,67 @@ import Select from '@mui/material/Select';
 
 function BestSellerItem({bestSeller}) {
 
-    const history = useHistory();
+    const dispatch = useDispatch();
 
-    // const book_isbn = bestSeller.primary_isbn13;
+    const book_isbn = bestSeller.primary_isbn13;
     const book_cover = bestSeller.book_image;
     const book_title = bestSeller.title;
     const book_author = bestSeller.author;
     const book_description = bestSeller.description;
 
+    const addToBookShelf = (event) => {
+        dispatch({
+            type: 'SAGA/ADD_BEST_SELLER_TO_BOOKSHELF',
+            //we're adding a book to our bookshelf so we need to send all this info along
+            //to so we can add the book to our database!
+            payload: {
+                book_ibsn: book_isbn,
+                book_title: book_title,
+                book_author: book_author,
+                book_cover: book_cover,
+                book_description: book_description,
+                bookshelf: event.target.value
+            }
+        })
+    }
+
     return (
         <>
-            <div className="bestSellerInfo">
                 <Paper 
                     elevation={3}
-                    sx={{backgroundColor: '#B7B4A2', height:'auto', width: '180px', margin: '35px', marginTop: '15px', padding: '15px', display: 'inline-block'}}
+                    sx={{backgroundColor: '#B7B4A2', height:'auto', width: '1000px', marginTop: '15px', padding: '15px', display: 'inline-flex', }}
                 >  
-                    <img 
-                        className="bestSellerCover"
-                        src={book_cover} 
-                        alt={book_title}
-                    /> 
+                    <section className="bestSellerBooks">
+                        <section className="bestSellerCover">
+                            <img 
+                                
+                                src={book_cover} 
+                                alt={book_title}
+                            /> 
+                        </section>
+                        <section className="bestSellerInfo">
+                            <h3>{book_title}</h3>
+                            <h4>Written by: {book_author}</h4>
+                            <p>{book_description}</p>
+                        </section>
+                        <section className="bookshelfMenu">
+                            <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
+                                <InputLabel id="demo-simple-select-standard-label">Select Bookshelf</InputLabel>
+                                <Select
+                                labelId="demo-simple-select-standard-label"
+                                id="demo-simple-select-standard"
+                                value={''}
+                                onChange={addToBookShelf}
+                                label="Select Bookshelf"
+                                >
+                                    <MenuItem value={1}>Currently Reading</MenuItem>
+                                    <MenuItem value={2}>Want To Read</MenuItem>
+                                    <MenuItem value={3}>Finished</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </section>
+                    </section>
                 </Paper>
-                <Paper 
-                    elevation={3}
-                    sx={{backgroundColor: '#B7B4A2', height: 'auto', width: '450px', margin: '45px', marginTop: '15px', padding: '15px', display: 'inline-block', verticalAlign: 'top'}}
-                >
-                    <h3>{book_title}</h3>
-                    <h4>Written by: {book_author}</h4>
-                    <p>{book_description}</p>
-                </Paper>
-                <Paper
-                    elevation={3}
-                    sx={{backgroundColor: '#B7B4A2', height: 'auto', width: '250px', margin: '35px', marginTop: '15px', padding: '15px', display: 'inline-block', verticalAlign: 'top'}}
-                >
-                     <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
-                        <InputLabel id="demo-simple-select-standard-label">Select Bookshelf</InputLabel>
-                        <Select
-                        labelId="demo-simple-select-standard-label"
-                        id="demo-simple-select-standard"
-                        
-                        
-                        label="Select Bookshelf"
-                        >
-                            <MenuItem value={1}>Currently Reading</MenuItem>
-                            <MenuItem value={2}>Want To Read</MenuItem>
-                            <MenuItem value={3}>Finished</MenuItem>
-                        </Select>
-                    </FormControl>
-                </Paper>
-            </div>
         </>
     )
 }

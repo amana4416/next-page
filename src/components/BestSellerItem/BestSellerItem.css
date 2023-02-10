@@ -1,19 +1,21 @@
-/* .bestSellerCover {
-    height: 240px;
-    width: 180px;
-    padding: 15px;
-} */
-
-.bestSellerInfo {
+.bestSellerCover, .bestSellerInfo, .bookshelfMenu {
     display: inline-block;
-    vertical-align: top;
 }
 
 
-/* .bestSellerCovers {
-    display: inline-flex;
-} */
+.bestSellerBooks {
+   margin: auto;
+   display: inherit;
+}
 
-/* .bestSellerCovers {
-    display: inline-flex;
-} */
+.bestSellerCover {
+    width: 180px;
+    height: auto;
+    padding: 15px;
+}
+
+.bestSellerInfo {
+    width: 250px;
+    height: auto;
+    margin: 15px;
+}
