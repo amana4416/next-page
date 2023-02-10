@@ -12,10 +12,8 @@ function BookDetails() {
     const params = useParams();
 
     //call bookDetails from the redux store
-    
+    const bookDetails = useSelector(store => store.bookDetails);
 
-
-    
     useEffect(() => {  
         const bookId = params.id;
         dispatch({
@@ -37,18 +35,19 @@ function BookDetails() {
                     sx={{backgroundColor: '#B7B4A2', height:'300', width: '275px', margin: '100px', padding: '15px'}}
                 > 
                     <img 
-                        // src={book_cover}
-                        // alt={book_title}
+                        src={bookDetails.book_cover}
+                        alt={bookDetails.book_title}
                     />
                 </Paper>
 
                 <section className="bestSellerBookInfo">
                     <Paper
                         elevation={3}
-                        sx={{backgroundColor: '#B7B4A2', height:'300px', width: '525px', marginTop: '100px'}}
+                        sx={{backgroundColor: '#B7B4A2', height:'300px', width: '525px', marginTop: '100px',}}
                     > 
-                        {/* <h2>{book_title}</h2> */}
-                        
+                        <h2>{bookDetails.book_title}</h2>
+                        <h2>Written by: {bookDetails.book_author}</h2>
+                        <p>{bookDetails.book_description}</p>
                     </Paper>
 
                    

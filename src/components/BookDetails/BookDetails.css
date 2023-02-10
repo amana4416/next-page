@@ -1,4 +1,4 @@
-/* .bestSellerDetailsBackground {
+.bestSellerDetailsBackground {
     background-color: #808274;
     margin-left: 98px;
 
@@ -7,12 +7,13 @@
     padding-left: 40px;
     width: 1200px;
     height: auto;
-} */
-/* 
+} 
+
 .bestSellerDetailsBackground, .bestSellerBookInfo {
     display: inline-flex;
-} */
+}
 
-/* .bestSellerBookInfo {
+.bestSellerBookInfo {
     display: block;
-} */
+    padding-left: 10px;
+} 
