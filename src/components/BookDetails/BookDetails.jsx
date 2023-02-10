@@ -58,7 +58,7 @@ function BookDetails() {
             }
         })
         //navigate user back to profile page
-        // history.push('/profile');
+        history.push('/profile');
     }
 
     return (

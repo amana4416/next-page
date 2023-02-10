@@ -205,6 +205,21 @@ router.put('/:id', (req, res) => {
   const bookToUpdate = req.params.id;
   const newBookshelf = req.body.bookshelf;
   console.log('new bookshelf', newBookshelf);
+  const sqlQuery = `
+    UPDATE "user_library"
+      SET "bookshelf" = $1
+      WHERE "id" = $2;
+  `;
+  const sqlValues = [newBookshelf, bookToUpdate];
+  pool.query(sqlQuery, sqlValues)
+    .then((response) => {
+      console.log('moved book with id', bookToUpdate, 'to bookshelf', newBookshelf);
+      res.sendStatus(201);
+    })
+    .catch((error) => {
+      console.log('error in /api/bookshelves PUT', error);
+      res.sendStatus(500);
+    })
 })
 
 
