@@ -17,3 +17,7 @@
     display: block;
     padding-left: 10px;
 } 
+
+.updateBook {
+    display: inline-flex;
+}
