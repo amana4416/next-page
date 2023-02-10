@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './CurrentlyReadingOpen.css';
 //mui imports
 import Paper from '@mui/material/Paper';
@@ -7,6 +8,7 @@ import Paper from '@mui/material/Paper';
 function CurrentlyReadingOpen() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     //call all the books marked as currently reading from the redux store
     const currentlyReading = useSelector(store => store.openBookshelf.currentlyReading);
@@ -18,6 +20,13 @@ function CurrentlyReadingOpen() {
             type: 'SAGA/FETCH_ALL_CURRENTLY_READING'
         })
     }, [])
+
+    //when you click on a book cover in the opened currently reading bookshelf,
+    //you will be navigated to a details page
+    const showBookDetails = (currently) => {
+        console.log(currently.id)
+        history.push(`/bookDetails/${currently.id}`)
+    }
 
 
     return (
@@ -34,6 +43,7 @@ function CurrentlyReadingOpen() {
                                 className="currentlyOpen"
                                 src={currently.book_cover} 
                                 alt={currently.book_title}
+                                onClick={(e) => {showBookDetails(currently)}} 
                             />
                         </Paper>
                     )

@@ -1,31 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-import './BestSellerDetails.css';
+import './BookDetails.css';
 //mui imports
 import Paper from '@mui/material/Paper'
 
 
-function BestSellerDetails() {
+function BookDetails() {
 
     const dispatch = useDispatch();
     const params = useParams();
 
-     //call best sellers from the redux store
-     const bestSellers = useSelector(store => store.bestSellers);
-
-     //declare our variables from the bestSellers reducer so we can show info on the page
-     const book_ibsn = params.id
-     console
-     const book_cover = `https://storage.googleapis.com/du-prd/books/images/${book_ibsn}.jpg`;
-     const book_title = bestSellers.title;
-     const book_author = bestSellers.author;
-     const book_description = bestSellers.description;
+    //call best sellers from the redux store
     
 
+
+    
     useEffect(() => {  
         dispatch({
-            type: 'SAGA/FETCH_BEST_SELLERS'
+            type: 'SAGA/FETCH_BOOK_DETAILS_'
         })
     }, [params.id]) //putting params.id in the bracket allows us to refresh the page and still
     //show the details for the same book. the BestSellerDetails will show the same book details until
@@ -65,4 +58,4 @@ function BestSellerDetails() {
     )
 }
 
-export default BestSellerDetails;
+export default BookDetails;

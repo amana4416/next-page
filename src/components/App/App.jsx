@@ -19,11 +19,11 @@ import SearchPage from '../SearchPage/SearchPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import BestSellerDetails from '../BestSellerDetails/BestSellerDetails';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import CurrentlyReadingOpen from '../CurrentlyReadingOpen/CurrentlyReadingOpen';
 import WantToReadOpen from '../WantToReadOpen/WantToReadOpen';
 import FinishedReadingOpen from '../FinishedReadingOpen/FinishedReadingOpen';
+import BookDetails from '../BookDetails/BookDetails';
 
 import './App.css';
 
@@ -106,11 +106,11 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows BestSellerDetails else shows LoginPage
+            // logged in shows BookDetails else shows LoginPage
             exact
-            path="/bestSellerDetails/:id"
+            path="/bookDetails/:id"
           >
-            <BestSellerDetails />
+            <BookDetails />
           </ProtectedRoute>
 
           <Route
