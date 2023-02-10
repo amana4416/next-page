@@ -9,9 +9,8 @@ function* fetchBookDetails(action) {
         // console.log(bookId)
         //sending request to server
         const response = yield axios({
-            
             method: 'GET',
-            url: `/api/bookshelves${bookId}`
+            url: `/api/bookshelves/${bookId}`
         })
 
     } catch (error) {

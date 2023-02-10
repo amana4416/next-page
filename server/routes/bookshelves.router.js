@@ -138,6 +138,27 @@ router.get('/finished', (req, res) => {
       })
 });
 
+//this get route will fetch book details for the book with the id we click on
+router.get('/:id', (req, res) => {
+  console.log('book id we want details for:', req.params);
+  const bookId = req.params.id;
+  const sqlQuery = `
+    SELECT * FROM "user_library"
+      WHERE "id" = $1;
+  `;
+  const sqlValues = [bookId];
+  pool.query(sqlQuery, sqlValues)
+    .then((response) => {
+      console.log('here are the book details you requested:', response.rows[0]);
+      res.send(response.rows[0]);
+    })
+    .catch((error) => {
+      console.log('error in /api/bookshelves/:id', error);
+      res.sendStatus(500);
+    })
+  
+});
+
 //making it so only authenticated users are able to add to their bookshelves
 router.post('/', rejectUnauthenticated, (req, res) => {
   // console.log('here is our user', req.user.id);
