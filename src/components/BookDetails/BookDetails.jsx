@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
+import swal from "sweetalert";
 import './BookDetails.css';
 //mui imports
 import Paper from '@mui/material/Paper'
@@ -36,6 +37,11 @@ function BookDetails() {
         })
         //navigate back to profile
         history.push('/profile')
+        //alert user book has been deleted
+        swal({
+            icon: 'success',
+            title: 'Deleted book from your bookshelf'
+        })
     }
 
     return (
