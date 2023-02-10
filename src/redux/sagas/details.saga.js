@@ -1,11 +1,17 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* fetchBookDetails() {
+//we want access to action.payload to send to the server so we'll give the 
+//function action as a parameter
+function* fetchBookDetails(action) {
     try {
+        const bookId = action.payload;
+        // console.log(bookId)
         //sending request to server
         const response = yield axios({
-            method: 'GET'
+            
+            method: 'GET',
+            url: `/api/bookshelves${bookId}`
         })
 
     } catch (error) {
