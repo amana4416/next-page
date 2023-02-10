@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* fetchBestSellerDetails() {
+function* fetchBookDetails() {
     try {
-        // //sending request to server
-        // const response = yield axios({
-        //     method: 
-        // })
+        //sending request to server
+        const response = yield axios({
+            method: 'GET'
+        })
 
-    } catch {
-        console.log('error fetching best seller book details')
+    } catch (error) {
+        console.log('error fetching book details', error)
     }
 }
 
@@ -17,7 +17,7 @@ function* fetchBestSellerDetails() {
 
 
 function* detailsSaga() {
-    yield takeLatest('SAGA/FETCH_BESTSELLER_DETAILS', fetchBestSellerDetails);
+    yield takeLatest('SAGA/FETCH_BOOK_DETAILS', fetchBookDetails);
 }
 
 export default detailsSaga;

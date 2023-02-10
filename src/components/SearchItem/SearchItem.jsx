@@ -22,7 +22,7 @@ function SearchItem({results}) {
     const book_cover = results.volumeInfo.imageLinks.thumbnail;
     const book_description = results.volumeInfo.description;
     
-    const addToBookShelf = () => {
+    const addToBookShelf = (event) => {
         dispatch({
             type: 'SAGA/ADD_TO_BOOKSHELF',
             //we're adding a book to our bookshelf so we need to send all this info along

@@ -18,7 +18,7 @@ function BookDetails() {
     
     useEffect(() => {  
         dispatch({
-            type: 'SAGA/FETCH_BOOK_DETAILS_'
+            type: 'SAGA/FETCH_BOOK_DETAILS'
         })
     }, [params.id]) //putting params.id in the bracket allows us to refresh the page and still
     //show the details for the same book. the BestSellerDetails will show the same book details until
