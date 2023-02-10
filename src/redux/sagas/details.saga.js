@@ -14,7 +14,7 @@ function* fetchBookDetails(action) {
         })
         yield put({
             type: 'SET_BOOK_DETAILS',
-            paylod: response.data
+            payload: response.data
         })
     } catch (error) {
         console.log('error fetching book details', error)

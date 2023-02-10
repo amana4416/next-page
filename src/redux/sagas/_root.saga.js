@@ -25,7 +25,7 @@ export default function* rootSaga() {
     bestSellersSaga(),
     bookshelvesSaga(),
     openBookshelvesSaga(),
-    detailsSaga(),
     addToBookshelfSaga(),
+    detailsSaga(),
   ]);
 }

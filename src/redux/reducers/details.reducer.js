@@ -13,3 +13,5 @@ const bookDetails = (state = {}, action) => {
             return state;
     }
 }
+
+export default bookDetails;

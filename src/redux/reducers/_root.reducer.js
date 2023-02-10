@@ -5,6 +5,7 @@ import searchResults from './searchResults.reducer';
 import bestSellers from './bestSellers.reducer';
 import bookshelves from './bookshelves.reducer';
 import openBookshelf from './openBookshelf.reducer';
+import bookDetails from './details.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -20,7 +21,7 @@ const rootReducer = combineReducers({
   bookshelves, //constains three arrays - one for each bookshelf. 
   //only contains the last 6 books added to each list
   openBookshelf, //contains three arrays - the entirety of each bookshelf
-
+  bookDetails, //contains the book details for the book we've clicked on by its specific id
 });
 
 export default rootReducer;
