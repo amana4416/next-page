@@ -14,10 +14,10 @@ function SearchItem({results}) {
     const dispatch = useDispatch();
 
     const user = useSelector((store) => store.user);
-
-    //can't get to isbn 13 which is located results.volumeInfo.industryIdentifiers[1].identifier
-    // const book_isbn = results.volumeInfo.industryIdentifiers[1].identifier
-    const book_title = results.volumeInfo.title;
+    
+    //NYT books api sends book titles in all upercase => it's easier to switch book titles
+    //that come from the google books api to all upercase to match
+    const book_title = results.volumeInfo.title.toUpperCase();
     const book_author = results.volumeInfo.authors;
     const book_cover = results.volumeInfo.imageLinks.thumbnail;
     const book_description = results.volumeInfo.description;
@@ -28,7 +28,6 @@ function SearchItem({results}) {
             //we're adding a book to our bookshelf so we need to send all this info along
             //to so we can add the book to our database!
             payload: {
-                // book_isbn: book_isbn,
                 book_title: book_title,
                 book_author: book_author,
                 book_cover: book_cover,
@@ -44,28 +43,27 @@ function SearchItem({results}) {
         })
     }
     
-    
     return (
         <>
-            <section className='resultBackground'>
+            <section className="searchResultsPaper">
                 <Paper 
                     elevation={3}
-                    sx={{backgroundColor: '#B7B4A2', margin: '15px', height: 'auto', width: '1200px', display: 'inline-block' }}
+                    sx={{backgroundColor: '#B7B4A2', height: 'auto', width: '1200px', marginTop: '15px', display: 'inline-flex' }}
                 >
-                    <section className='searchResultBooks'>
-                        <section className='searchResultCover'>
+                    <section className="searchResultsBooks">
+                        <section className="searchResultsCover">
                             <img 
-                                className='searchBookCovers'
+                                className="searchResultsCover"
                                 src={book_cover} 
                                 alt={book_title}
                             />
                         </section>
-                        <section className='searchResultInfo'>
+                        <section className="searchResultInfo">
                             <h3>{book_title}</h3>
                             <h4>Written by: {book_author}</h4>
                             <p>{book_description}</p>
                         </section>
-                        <section className='searchBookshelfMenu'>
+                        <section className="searchBookshelfMenu">
                             <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
                                 <InputLabel id="demo-simple-select-standard-label">Select Bookshelf</InputLabel>
                                 <Select

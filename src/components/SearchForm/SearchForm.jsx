@@ -4,11 +4,11 @@ import { useHistory } from 'react-router-dom';
 //mui imports
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
 
 function SearchForm() {
+
     const dispatch = useDispatch();
-    const history = useHistory();
-  
   
     //assinging input a piece of state
     const [search, setSearch] = useState('');
@@ -20,30 +20,36 @@ function SearchForm() {
         payload: search
       })
       //when the search goes through:
-      //clear inputs
+      //clear input
       setSearch('');
     }
 
     return (
-        <form className='searchInput' onSubmit={submitSearch}>
-            <TextField 
-                value={search}
-                label="search"
-                varient="standard"
-                sx={{color: '#42373A'}}
-                onChange={(event) => setSearch(event.target.value)}
-            />
-            <Button 
-                type='submit'
-                varient='contained'
-                color="secondary"
-                sx={{backgroundColor: '#42373A', color: '#C79A96'}}
-            >
-                Search
-            </Button>
-        </form>
+        <>
+            <form className='searchInput' onSubmit={submitSearch}>
+                <Paper 
+                    sx={{backgroundColor: '#B7B4A2', width: '450px', marginLeft: '480px'}}
+                >
+                    <TextField 
+                        value={search}
+                        label="search"
+                        varient="standard"
+                        sx={{color: '#42373A', margin: '15px', marginRight: '30px', width: '300px', height: 'auto'}}
+                        onChange={(event) => setSearch(event.target.value)}
+                    />
+                    <Button 
+                        type='submit'
+                        varient='contained'
+                        color="secondary"
+                        size="large"
+                        sx={{backgroundColor: '#42373A', color: '#C79A96', marginTop: '20px'}}
+                    >
+                        Search
+                    </Button>
+                </Paper>
+            </form>
+        </>
     )
-
 }
 
 export default SearchForm;

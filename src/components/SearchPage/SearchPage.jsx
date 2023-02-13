@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import SearchForm from '../SearchForm/SearchForm';
 import SearchItem from '../SearchItem/SearchItem';
-
+import './SearchPage.css';
+//mui imports
+import Paper from '@mui/material/Paper';
 
 function SearchPage() {
 
@@ -12,18 +14,23 @@ function SearchPage() {
   return (
     <>
     <SearchForm />
-      <h2>Search Results:</h2>
-      <div>
-        {searchResults.map(results => {
-          return (
-            <SearchItem 
-              key={results.id}
-              //sending results to SearchItem as a prop
-              results={results}
-            />
-          )
-        })}
-      </div>
+    <section className="searchResultsBackground">
+      <Paper 
+        sx={{backgroundColor: '#808274', width: '1250px', height: 'auto', margin: 'auto', marginTop: '20px', padding: '15px',}}
+      >
+        <h2 className="searchResultsHeading">Search Results:</h2>
+          {searchResults.map(results => {
+            return (
+              <SearchItem 
+                key={results.id}
+                //sending results to SearchItem as a prop
+                results={results}
+              />
+            )
+          })}
+      </Paper>
+    </section>
+      
     </>
   );
 }

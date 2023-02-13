@@ -15,7 +15,6 @@ function BestSellerItem({bestSeller}) {
 
     const user = useSelector((store) => store.user);
 
-    const book_isbn = bestSeller.primary_isbn13;
     const book_title = bestSeller.title;
     const book_author = bestSeller.author;
     const book_cover = bestSeller.book_image;
@@ -28,7 +27,6 @@ function BestSellerItem({bestSeller}) {
             //we're adding a book to our bookshelf so we need to send all this info along
             //to so we can add the book to our database!
             payload: {
-                book_isbn: book_isbn,
                 book_title: book_title,
                 book_author: book_author,
                 book_cover: book_cover,

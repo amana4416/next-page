@@ -1,19 +1,33 @@
-.resultBackground {
-    display: inline-flex;
+.searchResultsCover, .searchResultInfo, .searchBookshelfMenu {
+    display: inline-block;
+}
+
+.searchResultsPaper {
+    display: flex;
     align-items: center;
 }
 
-.searchResultBooks {
-    display: inline-flex;
+.searchResultsBooks {
+    margin: auto;
+    display: inherit;
 }
 
-.searchResultCover {
-    height: 400px;
-    width: 550px;
-}
-
-/* .searchBookCovers{
-    width: 1500px;
-    height: 200px;
+.searchResultsCover {
+    width: 180px;
+    height: auto;
+    margin-top: 0;
     padding: 15px;
-} */
+    padding-right: 60px;
+}
+
+.searchResultInfo {
+    width: 700px;
+    height: auto;
+    color: #42373A;
+}
+
+.searchBookshelfMenu {
+    padding: 15px;
+    color: #42373A;
+    padding-bottom: 200px;
+}

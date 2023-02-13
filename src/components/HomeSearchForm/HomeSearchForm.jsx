@@ -20,7 +20,7 @@ function HomeSearchForm() {
         payload: search
       })
       //when the search goes through:
-      //clear inputs
+      //clear input
       setSearch('');
       //and navigate to the search page
       history.push('/search');
