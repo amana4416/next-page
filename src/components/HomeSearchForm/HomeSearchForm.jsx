@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import './HomeSearchForm.css';
 //mui imports
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
 
 function HomeSearchForm() {
     const dispatch = useDispatch();
     const history = useHistory();
-  
   
     //assinging input a piece of state
     const [search, setSearch] = useState('');
@@ -23,29 +22,35 @@ function HomeSearchForm() {
       //when the search goes through:
       //clear inputs
       setSearch('');
-      //and move to the search page
+      //and navigate to the search page
       history.push('/search');
     }
 
     return (
         <>
-            <form className='homeSearchInput' onSubmit={submitSearch}>
-                <TextField 
-                    value={search}
-                    label="search"
-                    varient="standard"
-                    sx={{color: '#42373A'}}
-                    onChange={(event) => setSearch(event.target.value)}
-                />
-                <Button 
-                    type='submit'
-                    varient='contained'
-                    color="secondary"
-                    size="large"
-                    sx={{backgroundColor: '#42373A', color: '#C79A96'}}
+            <form className='homeSearchForm' onSubmit={submitSearch}>
+                <Paper 
+                    sx={{backgroundColor: '#B7B4A2', width: '450px', marginLeft: '480px'}}
                 >
-                    Search
-                </Button>
+                    <TextField
+                        className="homeSearchInput"
+                        value={search}
+                        label="search"
+                        varient="standard"
+                        sx={{color: '#42373A', margin: '15px', marginRight: '30px', width: '300px', height: 'auto'}}
+                        onChange={(event) => setSearch(event.target.value)}
+                    />
+                    <Button 
+                        className="homeSearchButton"
+                        type='submit'
+                        varient='contained'
+                        color="secondary"
+                        size="large"
+                        sx={{backgroundColor: '#42373A', color: '#C79A96', marginTop: '20px'}}
+                    >
+                        Search
+                    </Button>
+                </Paper>
             </form>
         </>
     )

@@ -1,16 +1,12 @@
 .bestSellersBackground {
-    background-color: #808274;
-    margin: auto;
-    margin-top: 20px;
-    padding: 20px;
-    padding-left: 80px;
-    width: 1250px;
+    /* background-color: #808274; */
+   
+    /* padding-left: 80px; */
+    /* width: 1250px; */
     height: auto;
 }
 
 .bestSellerHeading {
     color: #C79A96;
-    /* display: flex;
-    align-items: center; */
-    margin-left: 364px;
+    margin-left: 380px;
 }
