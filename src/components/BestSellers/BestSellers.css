@@ -8,7 +8,9 @@
     height: auto;
 }
 
-.heading {
+.bestSellerHeading {
     color: #C79A96;
-    /* padding-top: 0px; */
+    /* display: flex;
+    align-items: center; */
+    margin-left: 364px;
 }

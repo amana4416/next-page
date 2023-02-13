@@ -2,6 +2,11 @@
     display: inline-block;
 }
 
+.bestSellerPaper {
+    display: flex;
+    align-items: center;
+    margin-left: 127px;
+}
 
 .bestSellerBooks {
    margin: auto;
@@ -12,10 +17,15 @@
     width: 180px;
     height: auto;
     padding: 15px;
+    padding-right: 30px;
 }
 
 .bestSellerInfo {
-    width: 250px;
+    width: 400px;
     height: auto;
-    margin: 15px;
+    padding: 15px;
+}
+
+.bestSellerBookshelfMenu {
+    padding: 15px;
 }

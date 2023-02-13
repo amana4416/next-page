@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import HomeSearchForm from '../HomeSearhForm/HomeSearchForm';
+import HomeSearchForm from '../HomeSearchForm/HomeSearchForm';
 import BestSellers from '../BestSellers/BestSellers';
 
 function HomePage() {

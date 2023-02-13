@@ -46,13 +46,15 @@ function BestSellerItem({bestSeller}) {
 
     return (
         <>
+            <section className="bestSellerPaper">
                 <Paper 
                     elevation={3}
-                    sx={{backgroundColor: '#B7B4A2', height:'auto', width: '1000px', marginTop: '15px', padding: '15px', display: 'inline-flex', }}
+                    sx={{backgroundColor: '#B7B4A2', height:'auto', width: '900px', marginTop: '15px', display: 'inline-flex' }}
                 >  
                     <section className="bestSellerBooks">
                         <section className="bestSellerCover">
                             <img 
+                                className="bestSellerBookCover"
                                 src={book_cover} 
                                 alt={book_title}
                             /> 
@@ -79,6 +81,7 @@ function BestSellerItem({bestSeller}) {
                         </section>
                     </section>
                 </Paper>
+            </section>
         </>
     )
 }

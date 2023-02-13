@@ -19,7 +19,7 @@ function BestSellers() {
     return (
         <>
             <section className="bestSellersBackground">
-                <h2 className="heading"> Current New York Times Best Sellers </h2>
+                <h2 className="bestSellerHeading"> Current New York Times Best Sellers </h2>
                     {bestSellers.map(bestSeller => {
                         return (
                             <BestSellerItem 

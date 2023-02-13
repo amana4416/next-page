@@ -9,14 +9,14 @@ router.get('/currently/last', rejectUnauthenticated, (req, res) => {
   console.log('fetching books you are currently reading');
   //seeing if the user logged in is the user who added a book to the library
   //that way users will only see their own books
-  const currentUser = req.user.id;
-  const sqlQuery = `
-    SELECT * FROM "user_library"
-      WHERE "user_id = $1;
-  `;
-  const sqlValue = [currentUser];
-  pool.query(sqlQuery, sqlValue)
-    .then((response) => {
+  // const currentUser = req.user.id;
+  // const sqlQuery = `
+  //   SELECT * FROM "user_library"
+  //     WHERE "user_id = $1;
+  // `;
+  // const sqlValue = [currentUser];
+  // pool.query(sqlQuery, sqlValue)
+  //   .then((response) => {
       //selecting books marked as 'currently reading' from the database
       const sqlQuery2 = `
       SELECT * FROM "user_library"
@@ -34,11 +34,11 @@ router.get('/currently/last', rejectUnauthenticated, (req, res) => {
           console.log('error in /api/bookshelves/currently/last', error);
           res.sendStatus(500);
       })
-    })
-    .catch((error) => {
-      console.log('error checking if user is correct in /api/bookshelves/currently/last', error);
-      res.sendStatus(500);
-    })
+    // })
+    // .catch((error) => {
+    //   console.log('error checking if user is correct in /api/bookshelves/currently/last', error);
+    //   res.sendStatus(500);
+    // })
 })
 
 
@@ -48,14 +48,14 @@ router.get('/want/last', rejectUnauthenticated, (req, res) => {
   console.log('fetching books you want to read');
    //seeing if the user logged in is the user who added a book to the library
   //that way users will only see their own books
-  const currentUser = req.user.id;
-  const sqlQuery = `
-    SELECT * FROM "user_library"
-      WHERE "user_id = $1;
-  `;
-  const sqlValue = [currentUser];
-  pool.query(sqlQuery, sqlValue)
-    .then((response) => { 
+  // const currentUser = req.user.id;
+  // const sqlQuery = `
+  //   SELECT * FROM "user_library"
+  //     WHERE "user_id = $1;
+  // `;
+  // const sqlValue = [currentUser];
+  // pool.query(sqlQuery, sqlValue)
+    // .then((response) => { 
       // selecting books marked as 'want to read' from the database
       const sqlQuery2 = `
         SELECT * FROM "user_library"
@@ -72,11 +72,11 @@ router.get('/want/last', rejectUnauthenticated, (req, res) => {
           console.log('error in /api/bookshelves/want', error);
           res.sendStatus(500);
         })
-    })
-    .catch((error) => {
-            console.log('error checking if user is correct in /api/bookshelves/want/last', error);
-            res.sendStatus(500);
-    })
+    // })
+    // .catch((error) => {
+    //         console.log('error checking if user is correct in /api/bookshelves/want/last', error);
+    //         res.sendStatus(500);
+    // })
   
 })
 
@@ -86,22 +86,22 @@ router.get('/finished/last', rejectUnauthenticated, (req, res) => {
   console.log('fetching books you finished reading');
     //seeing if the user logged in is the user who added a book to the library
     //that way users will only see their own books
-  const currentUser = req.user.id;
-  const sqlQuery = `
-    SELECT * FROM "user_library"
-    WHERE "user_id = $1;
-  `;
-  const sqlValue = [currentUser];
-  pool.query(sqlQuery, sqlValue)
-    .then((response) => {
+  // const currentUser = req.user.id;
+  // const sqlQuery = `
+  //   SELECT * FROM "user_library"
+  //   WHERE "user_id = $1;
+  // `;
+  // const sqlValue = [currentUser];
+  // pool.query(sqlQuery, sqlValue)
+    // .then((response) => {
       //selecting books marked as 'want to read' from the database
-      const sqlQuery = `
+      const sqlQuery2 = `
         SELECT * FROM "user_library"
           WHERE "bookshelf" = 3
           ORDER BY "id" DESC
           FETCH FIRST 6 ROWS ONLY;
       `;
-      pool.query(sqlQuery)
+      pool.query(sqlQuery2)
         .then((response2) => {
             console.log('here are the books you finished reading', response2.rows);
             res.send(response2.rows);
@@ -110,124 +110,124 @@ router.get('/finished/last', rejectUnauthenticated, (req, res) => {
             console.log('error in /api/bookshelves/finished', error);
             res.sendStatus(500);
         })
-    })
-    .catch((error) => {
-      console.log('error checking if user is correct in /api/bookshelves/finished/last', error);
-      res.sendStatus(500);
-    })
+    // })
+    // .catch((error) => {
+    //   console.log('error checking if user is correct in /api/bookshelves/finished/last', error);
+    //   res.sendStatus(500);
+    // })
 })
 
 
 //this route will get all books in bookshelf 1
 //bookshelf 1 is the 'currently reading' bookshelf
-router.get('/currently', (req, res) => {
+router.get('/currently', rejectUnauthenticated, (req, res) => {
   console.log('fetching books you are currently reading');
   //seeing if the user logged in is the user who added a book to the library
   //that way users will only see their own books
-  const currentUser = req.user.id;
-  const sqlQuery = `
-    SELECT * FROM "user_library"
-    WHERE "user_id = $1;
-  `;
-  const sqlValue = [currentUser];
-  pool.query(sqlQuery, sqlValue)
-    .then((response) => {
+  // const currentUser = req.user.id;
+  // const sqlQuery = `
+  //   SELECT * FROM "user_library"
+  //   WHERE "user_id = $1;
+  // `;
+  // const sqlValue = [currentUser];
+  // pool.query(sqlQuery, sqlValue)
+    // .then((response) => {
       //selecting books marked as 'currently reading' from the database
-      const sqlQuery = `
+      const sqlQuery2 = `
         SELECT * FROM "user_library"
             WHERE "bookshelf" = 1
             ORDER BY "id" DESC;
       `;
-      pool.query(sqlQuery)
-        .then((response) => {
+      pool.query(sqlQuery2)
+        .then((response2) => {
             console.log('here are the all books you are currently reading');
           //console.log(response.rows);
-            res.send(response.rows);
+            res.send(response2.rows);
         })
         .catch((error) => {
             console.log('error in /api/bookshelves/currently', error);
             res.sendStatus(500);
         })
-      })
-      .catch((error) => {
-        console.log('error checking if user is correct in /api/bookshelves/cuurently', error);
-        res.sendStatus(500);
-      })
+      // })
+      // .catch((error) => {
+      //   console.log('error checking if user is correct in /api/bookshelves/cuurently', error);
+      //   res.sendStatus(500);
+      // })
 });
 
 
 //this route will get all books in bookshelf 2
 //bookshelf 2 is the 'want to read' bookshelf
-router.get('/want', (req, res) => {
+router.get('/want', rejectUnauthenticated, (req, res) => {
   console.log('fetching books you want to read');
    //seeing if the user logged in is the user who added a book to the library
   //that way users will only see their own books
-  const currentUser = req.user.id;
-  const sqlQuery = `
-    SELECT * FROM "user_library"
-    WHERE "user_id = $1;
-  `;
-  const sqlValue = [currentUser];
-  pool.query(sqlQuery, sqlValue)
-    .then((response) => {
+  // const currentUser = req.user.id;
+  // const sqlQuery = `
+  //   SELECT * FROM "user_library"
+  //   WHERE "user_id = $1;
+  // `;
+  // const sqlValue = [currentUser];
+  // pool.query(sqlQuery, sqlValue)
+    // .then((response) => {
     //selecting books marked as 'want to read' from the database
-    const sqlQuery = `
+    const sqlQuery2 = `
         SELECT * FROM "user_library"
             WHERE "bookshelf" = 2
             ORDER BY "id" DESC;
       `;
-      pool.query(sqlQuery)
-        .then((response) => {
+      pool.query(sqlQuery2)
+        .then((response2) => {
             console.log('here are the all books you want to read');
           //console.log(response.rows);
-            res.send(response.rows);
+            res.send(response2.rows);
         })
         .catch((error) => {
             console.log('error in /api/bookshelves/want', error);
             res.sendStatus(500);
         })
-      })
-      .catch((error) => {
-        console.log('error checking if user is correct in /api/bookshelves/want', error);
-        res.sendStatus(500);
-      })
+      // })
+      // .catch((error) => {
+      //   console.log('error checking if user is correct in /api/bookshelves/want', error);
+      //   res.sendStatus(500);
+      // })
 });
 
 //this route will get all books in bookshelf 3
 //bookshelf 3 is the finished reading bookshelf
-router.get('/finished', (req, res) => {
+router.get('/finished', rejectUnauthenticated, (req, res) => {
   console.log('fetching books you finished');
   //seeing if the user logged in is the user who added a book to the library
   //that way users will only see their own books
-  const currentUser = req.user.id;
-  const sqlQuery = `
-    SELECT * FROM "user_library"
-    WHERE "user_id = $1;
-  `;
-  const sqlValue = [currentUser];
-  pool.query(sqlQuery, sqlValue)
-    .then((response) => {
+  // const currentUser = req.user.id;
+  // const sqlQuery = `
+  //   SELECT * FROM "user_library"
+  //   WHERE "user_id = $1;
+  // `;
+  // const sqlValue = [currentUser];
+  // pool.query(sqlQuery, sqlValue)
+    // .then((response) => {
       //selecting books marked as 'finished reading' from the database
-      const sqlQuery = `
+      const sqlQuery2 = `
         SELECT * FROM "user_library"
             WHERE "bookshelf" = 3
             ORDER BY "id" DESC;
       `;
-      pool.query(sqlQuery)
-        .then((response) => {
+      pool.query(sqlQuery2)
+        .then((response2) => {
             console.log('here are the all books you finished reading');
           //console.log(response.rows);
-            res.send(response.rows);
+            res.send(response2.rows);
         })
         .catch((error) => {
             console.log('error in /api/bookshelves/finished', error);
             res.sendStatus(500);
         })
-    })
-    .catch((error) => {
-      console.log('error checking if user is correct in /api/bookshelves/finished', error);
-      res.sendStatus(500);
-    })
+    // })
+    // .catch((error) => {
+    //   console.log('error checking if user is correct in /api/bookshelves/finished', error);
+    //   res.sendStatus(500);
+    // })
 });
 
 //this get route will fetch book details for the book with the id we click on

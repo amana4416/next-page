@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './HomeSearchForm.css';
 //mui imports
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -27,23 +28,26 @@ function HomeSearchForm() {
     }
 
     return (
-        <form className='searchInput' onSubmit={submitSearch}>
-            <TextField 
-                value={search}
-                label="search"
-                varient="standard"
-                sx={{color: '#42373A'}}
-                onChange={(event) => setSearch(event.target.value)}
-            />
-            <Button 
-                type='submit'
-                varient='contained'
-                color="secondary"
-                sx={{backgroundColor: '#42373A', color: '#C79A96'}}
-            >
-                Search
-            </Button>
-        </form>
+        <>
+            <form className='homeSearchInput' onSubmit={submitSearch}>
+                <TextField 
+                    value={search}
+                    label="search"
+                    varient="standard"
+                    sx={{color: '#42373A'}}
+                    onChange={(event) => setSearch(event.target.value)}
+                />
+                <Button 
+                    type='submit'
+                    varient='contained'
+                    color="secondary"
+                    size="large"
+                    sx={{backgroundColor: '#42373A', color: '#C79A96'}}
+                >
+                    Search
+                </Button>
+            </form>
+        </>
     )
 
 }
