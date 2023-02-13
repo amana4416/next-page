@@ -30,24 +30,28 @@ function FinishedReadingOpen() {
 
     return (
         <>
-            <h2>Finished Reading</h2>
-            <section className="finishedReadingOpenBackground">
-                {finishedReading.map(finished => {
-                    return (
-                        <Paper
-                        key={finished.id}
-                        sx={{backgroundColor: '#B7B4A2', height:'auto', width: '180px', margin: '15px', marginBottom: '15px', paddingLeft: '5px', display: 'inline-flex'}}
-                        >
-                            <img 
-                                className="finishedOpen"
-                                src={finished.book_cover} 
-                                alt={finished.book_title}
-                                onClick={(e) => {showBookDetails(finished)}} 
-                            />
-                        </Paper>
-                    )
-                })}
-            </section>
+            <Paper
+                 sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', paddingLeft: '25px', paddingRight: '25px', paddingBottom: '15px',}}
+            >
+                <h2 className="openBookshelfHeading">Finished Reading</h2>
+                <section className="finishedReadingOpenBackground">
+                    {finishedReading.map(finished => {
+                        return (
+                            <Paper
+                            key={finished.id}
+                            sx={{backgroundColor: '#B7B4A2', height:'auto', width: '180px', margin: '15px', marginBottom: '15px', paddingLeft: '5px', display: 'inline-flex'}}
+                            >
+                                <img 
+                                    className="finishedOpen"
+                                    src={finished.book_cover} 
+                                    alt={finished.book_title}
+                                    onClick={(e) => {showBookDetails(finished)}} 
+                                />
+                            </Paper>
+                        )
+                    })}
+                </section>
+            </Paper>
         </>
     )
 }

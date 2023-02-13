@@ -30,24 +30,28 @@ function CurrentlyReadingOpen() {
 
     return (
         <>
-            <h2>Currently Reading</h2>
-            <section className="currentlyReadingOpenBackground">
-            {currentlyReading.map(currently => {
-                    return (
-                        <Paper
-                        key={currently.id}
-                        sx={{backgroundColor: '#B7B4A2', height:'auto', width: '180px', margin: '15px', marginBottom: '15px', paddingLeft: '5px', display: 'inline-flex'}}
-                        >
-                            <img 
-                                className="currentlyOpen"
-                                src={currently.book_cover} 
-                                alt={currently.book_title}
-                                onClick={(e) => {showBookDetails(currently)}} 
-                            />
-                        </Paper>
-                    )
-                })}
-            </section>
+            <Paper
+                sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', paddingLeft: '25px', paddingRight: '25px', paddingBottom: '15px',}}
+            >
+                <h2 className="openBookshelfHeading">Currently Reading</h2>
+                <section className="currentlyReadingOpenBackground">
+                {currentlyReading.map(currently => {
+                        return (
+                            <Paper
+                            key={currently.id}
+                            sx={{backgroundColor: '#B7B4A2', height:'auto', width: '180px', margin: '15px', marginBottom: '15px', paddingLeft: '5px', display: 'inline-flex'}}
+                            >
+                                <img 
+                                    className="currentlyOpen"
+                                    src={currently.book_cover} 
+                                    alt={currently.book_title}
+                                    onClick={(e) => {showBookDetails(currently)}} 
+                                />
+                            </Paper>
+                        )
+                    })}
+                </section>
+            </Paper>
         </>
     )
 }
