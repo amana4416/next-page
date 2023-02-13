@@ -39,13 +39,13 @@ function BookDetails() {
             type: 'SAGA/DELETE_FROM_BOOKSHELF',
             payload: bookDetails.id
         })
-        //navigate back to profile
-        history.push('/profile');
         //alert user book has been deleted
         swal({
             icon: 'success',
             title: 'Deleted book from your bookshelf'
         })
+        //navigate back to profile
+        history.push('/profile');
     }
 
     const changeBookshelf = (id, event) => {
@@ -56,6 +56,11 @@ function BookDetails() {
                 id: bookDetails.id,
                 bookshelf: event.target.value
             }
+        })
+        //alert user book has been moved to another bookshelf
+        swal({
+            icon: 'success',
+            title: 'Moved book to another bookshelf'
         })
         //navigate user back to profile page
         history.push('/profile');

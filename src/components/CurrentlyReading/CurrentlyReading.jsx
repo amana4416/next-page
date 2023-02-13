@@ -32,21 +32,25 @@ function CurrentlyReading() {
     return (
         <>
             <section className="currentlyReadingBackground" onClick={openCurrentlyReading}>
-                <h2 className="bookshelfHeading">Currently Reading:</h2>
-                {currentlyReading.map(currently => {
-                    return (
-                        <Paper
-                        key={currently.id}
-                        sx={{backgroundColor: '#B7B4A2', height:'auto', width: '160px', margin: '15px', marginBottom: '15px', display: 'inline-flex'}}
-                        >
-                            <img 
-                                className="profileCurrentlyLast"
-                                src={currently.book_cover} 
-                                alt={currently.book_title}
-                            />
-                        </Paper>
-                    )
-                })}
+                <Paper
+                    sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', paddingLeft: '25px', paddingRight: '25px', paddingBottom: '15px',}}
+                >
+                    <h2 className="bookshelfHeading">Currently Reading:</h2>
+                    {currentlyReading.map(currently => {
+                        return (
+                            <Paper
+                            key={currently.id}
+                            sx={{backgroundColor: '#B7B4A2', height:'auto', width: '160px', margin: '15px', marginBottom: '15px', display: 'inline-flex'}}
+                            >
+                                <img 
+                                    className="profileCurrentlyLast"
+                                    src={currently.book_cover} 
+                                    alt={currently.book_title}
+                                />
+                            </Paper>
+                        )
+                    })}
+                </Paper>
             </section>
         </>
     )

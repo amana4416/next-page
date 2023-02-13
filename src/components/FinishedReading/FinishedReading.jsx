@@ -32,21 +32,25 @@ function FinishedReading() {
     return (
         <>
             <section className="finishedReadingBackground" onClick={openFinishedReading}>
-                <h2 className="bookshelfHeading">Finished Reading:</h2>
-                {finishedReading.map(finished => {
-                    return (
-                        <Paper
-                        key={finished.id}
-                        sx={{backgroundColor: '#B7B4A2', height:'auto', width: '160px', margin: '15px', marginBottom: '15px', display: 'inline-flex'}}
-                        >
-                            <img 
-                                className="profileFinishedLast"
-                                src={finished.book_cover} 
-                                alt={finished.book_title}
-                            />
-                        </Paper>
-                    )
-                })}
+                <Paper
+                    sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', paddingLeft: '25px', paddingRight: '25px', paddingBottom: '15px',}}
+                >
+                    <h2 className="bookshelfHeading">Finished Reading:</h2>
+                    {finishedReading.map(finished => {
+                        return (
+                            <Paper
+                            key={finished.id}
+                            sx={{backgroundColor: '#B7B4A2', height:'auto', width: '160px', margin: '15px', marginBottom: '15px', display: 'inline-flex'}}
+                            >
+                                <img 
+                                    className="profileFinishedLast"
+                                    src={finished.book_cover} 
+                                    alt={finished.book_title}
+                                />
+                            </Paper>
+                        )
+                    })}
+                </Paper>
             </section>
         </>
     )

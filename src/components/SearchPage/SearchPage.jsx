@@ -16,7 +16,7 @@ function SearchPage() {
     <SearchForm />
     <section className="searchResultsBackground">
       <Paper 
-        sx={{backgroundColor: '#808274', width: '1250px', height: 'auto', margin: 'auto', marginTop: '20px', padding: '15px',}}
+        sx={{backgroundColor: '#808274', width: '1250px', height: 'auto', margin: 'auto', marginTop: '20px', padding: '15px', paddingLeft: '58px'}}
       >
         <h2 className="searchResultsHeading">Search Results:</h2>
           {searchResults.map(results => {

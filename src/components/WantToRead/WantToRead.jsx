@@ -31,23 +31,26 @@ function WantToRead() {
     return (
         <>
            <section className="wantToReadBackground" onClick={openWantToRead}>
-                <h2 className="bookshelfHeading">Want To Read:</h2>
-                {wantToRead.map(want => {
-                    return (
-                        <Paper
-                        key={want.id}
-                        sx={{backgroundColor: '#B7B4A2', height:'auto', width: '160px', margin: '15px', marginBottom: '15px',  display: 'inline-flex'}}
-                        >
-                            <img 
-                                className="profileWantLast"
-                                src={want.book_cover} 
-                                alt={want.book_title}
-                            />
+                <Paper
+                    sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', paddingLeft: '25px', paddingRight: '25px', paddingBottom: '15px',}}
+                >
+                    <h2 className="bookshelfHeading">Want To Read:</h2>
+                    {wantToRead.map(want => {
+                        return (
+                            <Paper
+                            key={want.id}
+                            sx={{backgroundColor: '#B7B4A2', height:'auto', width: '160px', margin: '15px', marginBottom: '15px',  display: 'inline-flex'}}
+                            >
+                                <img 
+                                    className=""
+                                    src={want.book_cover} 
+                                    alt={want.book_title}
+                                />
 
-                        </Paper>
-                    )
-                })}
-
+                            </Paper>
+                        )
+                    })}
+                </Paper>
             </section>
         </>
     )

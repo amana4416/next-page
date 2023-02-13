@@ -10,7 +10,6 @@ function* deleteFromBookshelf(action) {
             method: 'DELETE',
             url: `/api/bookshelves/${bookToDelete}`
         })
-
     } catch (error) {
         console.log('error deleting book from the bookshelf', error)
     }
