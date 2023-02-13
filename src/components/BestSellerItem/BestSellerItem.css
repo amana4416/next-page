@@ -18,14 +18,16 @@
     height: auto;
     padding: 15px;
     padding-right: 30px;
+    color: #42373A;
 }
 
 .bestSellerInfo {
     width: 400px;
     height: auto;
-    padding: 15px;
+    color: #42373A;
 }
 
 .bestSellerBookshelfMenu {
     padding: 15px;
+    color: #42373A;
 }
