@@ -1,21 +1,11 @@
-.bestSellerDetailsBackground {
-    background-color: #808274;
-    margin-left: 98px;
-
-    margin-top: 20px;
-    padding-bottom: 15px;
-    padding-left: 40px;
-    width: 1200px;
-    height: auto;
-} 
-
-.bestSellerDetailsBackground, .bestSellerBookInfo {
+.bookDetailsBackground, .bookDetailsInfo {
     display: inline-flex;
 }
 
-.bestSellerBookInfo {
+.bookDetailsInfo {
     display: block;
     padding-left: 10px;
+    color: #42373A;
 } 
 
 .updateBook {

@@ -68,47 +68,52 @@ function BookDetails() {
 
     return (
         <>
-            <section className="bestSellerDetailsBackground">
+            <section className="bookDetailsBackground">
                 <Paper
-                    elevation={3}
-                    sx={{backgroundColor: '#B7B4A2', height:'300', width: '275px', margin: '100px', padding: '15px'}}
-                > 
-                    <img 
-                        src={bookDetails.book_cover}
-                        alt={bookDetails.book_title}
-                    />
-                </Paper>
-
-                <section className="bestSellerBookInfo">
+                    sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', marginLeft: '85px', paddingLeft: '25px', paddingRight: '25px', paddingBottom: '15px', display: 'inline-flex'}}
+                >
                     <Paper
                         elevation={3}
-                        sx={{backgroundColor: '#B7B4A2', height:'300px', width: '525px', marginTop: '100px',}}
+                        sx={{backgroundColor: '#B7B4A2', height:'300px', width: '275px', margin: '100px', padding: '15px'}}
                     > 
-                        <h2>{bookDetails.book_title}</h2>
-                        <h2>Written by: {bookDetails.book_author}</h2>
-                        <p>{bookDetails.book_description}</p>
-
-                        <section className="updateBook">
-                            <DeleteForeverIcon
-                                onClick={() => deleteFromBookshelf(bookDetails.id)}
-                            >
-                            </DeleteForeverIcon>
-                            <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
-                                <InputLabel id="demo-simple-select-standard-label">Select Bookshelf</InputLabel>
-                                <Select
-                                    labelId="demo-simple-select-standard-label"
-                                    id="demo-simple-select-standard"
-                                    value={''}
-                                    onChange={(event) => {changeBookshelf(bookDetails.id, event)}}
-                                >
-                                    <MenuItem value={1}>Currently Reading</MenuItem>
-                                    <MenuItem value={2}>Want To Read</MenuItem>
-                                    <MenuItem value={3}>Finished</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </section>
+                        <img 
+                            className="bookDetails"
+                            src={bookDetails.book_cover}
+                            alt={bookDetails.book_title}
+                        />
                     </Paper>
-                </section>
+
+                    <section className="bookDetailsInfo">
+                        <Paper
+                            elevation={3}
+                            sx={{backgroundColor: '#B7B4A2', height:'auto', width: '525px', marginTop: '100px',}}
+                        > 
+                            <h2>{bookDetails.book_title}</h2>
+                            <h2>Written by: {bookDetails.book_author}</h2>
+                            <p>{bookDetails.book_description}</p>
+
+                            <section className="updateBook">
+                                <DeleteForeverIcon
+                                    onClick={() => deleteFromBookshelf(bookDetails.id)}
+                                >
+                                </DeleteForeverIcon>
+                                <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
+                                    <InputLabel id="demo-simple-select-standard-label">Select Bookshelf</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-standard-label"
+                                        id="demo-simple-select-standard"
+                                        value={''}
+                                        onChange={(event) => {changeBookshelf(bookDetails.id, event)}}
+                                    >
+                                        <MenuItem value={1}>Currently Reading</MenuItem>
+                                        <MenuItem value={2}>Want To Read</MenuItem>
+                                        <MenuItem value={3}>Finished</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </section>
+                        </Paper>
+                    </section>
+                </Paper>
             </section>
         </>
     )

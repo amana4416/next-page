@@ -18,7 +18,7 @@ function SearchItem({results}) {
     //NYT books api sends book titles in all upercase => it's easier to switch book titles
     //that come from the google books api to all upercase to match
     const book_title = results.volumeInfo.title.toUpperCase();
-    const book_author = results.volumeInfo.authors;
+    const book_author = results.volumeInfo.authors[0];
     const book_cover = results.volumeInfo.imageLinks.thumbnail;
     const book_description = results.volumeInfo.description;
     
