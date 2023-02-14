@@ -20,6 +20,8 @@ function BookDetails() {
 
     //call bookDetails from the redux store
     const bookDetails = useSelector(store => store.bookDetails);
+    //calling user from the redux store
+    const user = useSelector(store => store.user);
 
     useEffect(() => {  
         const bookId = params.id;
@@ -67,6 +69,17 @@ function BookDetails() {
         history.push('/profile');
     }
 
+    const addNote = (id) => {
+        console.log('you left a note on book with id:', id)
+        dispatch({
+            type: 'SAGA/ADD_NOTE',
+            payload: {
+                book_id: id,
+                user_id: user.id
+            }
+        })
+    }
+
     return (
         <>
             <section className="bookDetailsBackground">
@@ -85,7 +98,6 @@ function BookDetails() {
                             />
                         </Paper>
                     </section>
-
                     <section className="bookDetailsInfo">
                         <Paper
                             elevation={3}
@@ -115,7 +127,7 @@ function BookDetails() {
                                     >
                                         <MenuItem value={1}>Currently Reading</MenuItem>
                                         <MenuItem value={2}>Want To Read</MenuItem>
-                                        <MenuItem value={3}>Finished REa</MenuItem>
+                                        <MenuItem value={3}>Finished Reading</MenuItem>
                                     </Select>
                                 </FormControl>
                             </section>
@@ -123,6 +135,7 @@ function BookDetails() {
                                 color="secondary"
                                 size="large"
                                 sx={{backgroundColor: '#42373A', color: '#C79A96', marginBottom: '25px', marginLeft:'15px' }}
+                                onClick={() => {addNote(bookDetails.id)}}
                             >
                                 Leave a Note
                             </Button>
