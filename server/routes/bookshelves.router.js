@@ -192,7 +192,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     ("book_title", "book_author", "book_cover", "book_description", "bookshelf", "user_id")
       VALUES
       ($1, $2, $3, $4, $5, $6);
-  `
+  `;
   const sqlValues = [newBook.book_title, newBook.book_author, newBook.book_cover, newBook.book_description, newBook.bookshelf, newBook.user_id];
   pool.query(sqlQuery, sqlValues)
     .then((response) => {

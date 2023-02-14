@@ -10,8 +10,8 @@ function* addNote(action) {
             method: 'POST',
             url: `/api/notes`,
             data: {
-                book_id: 'newNote.book_id',
-                user_id: 'newNote.user_id'
+                book_id: newNote.book_id,
+                user_id: newNote.user_id
             }
         })
     } catch (error) {
