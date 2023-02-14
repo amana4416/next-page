@@ -9,6 +9,7 @@ import openBookshelvesSaga from './openBookshelves.saga';
 import detailsSaga from './details.saga';
 import addToBookshelfSaga from './addToBookshelf.saga';
 import updateBookshelvesSaga from './updateBookshelves.saga';
+import addNoteSaga from './addNote.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -28,6 +29,7 @@ export default function* rootSaga() {
     openBookshelvesSaga(),
     addToBookshelfSaga(),
     detailsSaga(),
-    updateBookshelvesSaga()
+    updateBookshelvesSaga(),
+    addNoteSaga()
   ]);
 }
