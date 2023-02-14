@@ -14,6 +14,10 @@ function* addNote(action) {
                 user_id: newNote.user_id
             }
         })
+        yield put({
+            type: 'SET_NOTES',
+            payload: response.data
+        })
     } catch (error) {
         console.log('error in addNote', error)
     }
