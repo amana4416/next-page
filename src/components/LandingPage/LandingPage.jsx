@@ -24,7 +24,7 @@ function LandingPage() {
           <p>
           Book lovers can use Next Page to keep track of all the books they're reading, want to read, 
           and have already finished. Readers are also able to update their reading log and leave notes 
-          about why they loved the book after finishing it.
+          about why they loved (or hated) about each book.
           </p>
         </div>
         <div className="grid-col grid-col_4">

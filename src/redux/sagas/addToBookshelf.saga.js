@@ -11,7 +11,6 @@ function* addToBookshelf(action) {
             method: 'POST',
             url: '/api/bookshelves',
             data: {
-                book_isbn: newBook.book_isbn,
                 book_title: newBook.book_title,
                 book_author: newBook.book_author,
                 book_cover: newBook.book_cover,

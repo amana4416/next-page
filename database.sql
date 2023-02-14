@@ -11,7 +11,6 @@ CREATE TABLE "user" (
 
 CREATE TABLE "user_library" (
 	"id" SERIAL PRIMARY KEY,
-	"book_ibsn" BIGINT NOT NULL,
 	"book_title" VARCHAR (255) NOT NULL,
 	"book_author" VARCHAR (255) NOT NULL,
 	"book_cover" VARCHAR (500) NOT NULL,

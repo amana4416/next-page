@@ -160,14 +160,16 @@ router.get('/finished', rejectUnauthenticated, (req, res) => {
 });
 
 //this get route will fetch book details for the book with the id we click on
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
   console.log('book id we want details for:', req.params);
+  const currentUser = req.user.id;
   const bookId = req.params.id;
   const sqlQuery = `
     SELECT * FROM "user_library"
-      WHERE "id" = $1;
+      WHERE "user_id" = $1
+      AND "id" = $2;
   `;
-  const sqlValue = [bookId];
+  const sqlValue = [currentUser, bookId];
   pool.query(sqlQuery, sqlValue)
     .then((response) => {
       console.log('here are the book details you requested:', response.rows[0]);
@@ -187,11 +189,11 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   const newBook = req.body;
   const sqlQuery = `
     INSERT INTO "user_library" 
-    ("book_isbn", "book_title", "book_author", "book_cover", "book_description", "bookshelf", "user_id")
+    ("book_title", "book_author", "book_cover", "book_description", "bookshelf", "user_id")
       VALUES
-      ($1, $2, $3, $4, $5, $6, $7);
+      ($1, $2, $3, $4, $5, $6);
   `
-  const sqlValues = [newBook.book_isbn, newBook.book_title, newBook.book_author, newBook.book_cover, newBook.book_description, newBook.bookshelf, newBook.user_id];
+  const sqlValues = [newBook.book_title, newBook.book_author, newBook.book_cover, newBook.book_description, newBook.bookshelf, newBook.user_id];
   pool.query(sqlQuery, sqlValues)
     .then((response) => {
       res.sendStatus(201);

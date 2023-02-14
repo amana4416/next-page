@@ -10,6 +10,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Button from '@mui/material/Button';
 
 function BookDetails() {
 
@@ -88,7 +89,7 @@ function BookDetails() {
                     <section className="bookDetailsInfo">
                         <Paper
                             elevation={3}
-                            sx={{backgroundColor: '#B7B4A2', height:'auto', width: '525px', marginTop: '100px', padding: '20px'}}
+                            sx={{backgroundColor: '#B7B4A2', height:'auto', width: '525px', marginTop: '100px', paddingTop: '20px', paddingLeft: '20px', paddingRight: '20px'}}
                         > 
                             <section className="bookData">
                                 <h2>{bookDetails.book_title}</h2>
@@ -118,6 +119,13 @@ function BookDetails() {
                                     </Select>
                                 </FormControl>
                             </section>
+                            <Button
+                                color="secondary"
+                                size="large"
+                                sx={{backgroundColor: '#42373A', color: '#C79A96', marginBottom: '25px', marginLeft:'15px' }}
+                            >
+                                Leave a Note
+                            </Button>
                         </Paper>
                     </section>
                 </Paper>
