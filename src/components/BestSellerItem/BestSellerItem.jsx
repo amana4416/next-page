@@ -73,7 +73,7 @@ function BestSellerItem({bestSeller}) {
                                 >
                                     <MenuItem value={1}>Currently Reading</MenuItem>
                                     <MenuItem value={2}>Want To Read</MenuItem>
-                                    <MenuItem value={3}>Finished</MenuItem>
+                                    <MenuItem value={3}>Finished Reading</MenuItem>
                                 </Select>
                             </FormControl>
                         </section>

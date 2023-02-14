@@ -70,7 +70,7 @@ function LoginForm() {
             size="large"
             sx={{backgroundColor: '#C79A96', color: '#E6CEC7', marginTop: '15px', marginLeft: '15px' }}
           >
-            Log in
+            Login
           </Button>
         </div>
       </Paper>
