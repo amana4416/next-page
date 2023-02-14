@@ -13,7 +13,7 @@ function BestSellerItem({bestSeller}) {
 
     const dispatch = useDispatch();
 
-    const user = useSelector((store) => store.user);
+    const user = useSelector(store => store.user);
 
     const book_title = bestSeller.title;
     const book_author = bestSeller.author;

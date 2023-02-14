@@ -114,7 +114,7 @@ function BookDetails() {
                                     >
                                         <MenuItem value={1}>Currently Reading</MenuItem>
                                         <MenuItem value={2}>Want To Read</MenuItem>
-                                        <MenuItem value={3}>Finished Reading</MenuItem>
+                                        <MenuItem value={3}>Finished REa</MenuItem>
                                     </Select>
                                 </FormControl>
                             </section>
