@@ -38,7 +38,7 @@ function RegisterForm() {
         <div>
         <TextField 
           value={username}
-          label="username:"
+          label="Username:"
           varient="standard"
           required
           sx={{backgroundColor: '#E6CEC7', margin: '15px', marginRight: '30px', width: '300px', height: 'auto'}}
@@ -48,7 +48,7 @@ function RegisterForm() {
         <div>
         <TextField 
           value={password}
-          label="password:"
+          label="Password:"
           type="password"
           varient="standard"
           required

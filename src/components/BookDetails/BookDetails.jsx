@@ -90,9 +90,11 @@ function BookDetails() {
                             elevation={3}
                             sx={{backgroundColor: '#B7B4A2', height:'auto', width: '525px', marginTop: '100px', padding: '20px'}}
                         > 
-                            <h2>{bookDetails.book_title}</h2>
-                            <h2>Written by: {bookDetails.book_author}</h2>
-                            <p>{bookDetails.book_description}</p>
+                            <section className="bookData">
+                                <h2>{bookDetails.book_title}</h2>
+                                <h2>Written by: {bookDetails.book_author}</h2>
+                                <p>{bookDetails.book_description}</p>
+                            </section>
 
                             <section className="updateBook">
                                 <DeleteForeverIcon

@@ -14,9 +14,12 @@
 
 .bookDetailsInfo {
     display: flex;
-    /* padding-left: 10px; */
     color: #42373A;
 } 
+
+.bookData {
+    color:#42373A;
+}
 
 .updateBook {
     display: inline-block;

@@ -32,7 +32,7 @@ function SearchForm() {
                 >
                     <TextField 
                         value={search}
-                        label="search"
+                        label="Search"
                         varient="standard"
                         sx={{color: '#42373A', margin: '15px', marginRight: '30px', width: '300px', height: 'auto'}}
                         onChange={(event) => setSearch(event.target.value)}
