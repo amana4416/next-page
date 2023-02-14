@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import './RegisterForm.css';
+//mui imports
+import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -21,39 +26,49 @@ function RegisterForm() {
 
   return (
     <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
-      {errors.registrationMessage && (
-        <h3 className="alert" role="alert">
-          {errors.registrationMessage}
-        </h3>
-      )}
-      <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            required
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
-      </div>
+      <Paper 
+        sx={{backgroundColor: '#42373A', width: '400px', maxWidth: '100%', padding: '25px', margin: '0 auto 20px', borderRadius: '3px'}}
+      >
+        <h2 className="registerHeading">Register User</h2>
+        {errors.registrationMessage && (
+          <h3 className="alert" role="alert">
+            {errors.registrationMessage}
+          </h3>
+        )}
+        <div>
+        <TextField 
+          value={username}
+          label="username:"
+          varient="standard"
+          required
+          sx={{backgroundColor: '#E6CEC7', margin: '15px', marginRight: '30px', width: '300px', height: 'auto'}}
+          onChange={(event) => setUsername(event.target.value)}
+        />
+        </div>
+        <div>
+        <TextField 
+          value={password}
+          label="password:"
+          type="password"
+          varient="standard"
+          required
+          sx={{backgroundColor: '#E6CEC7', margin: '15px', marginRight: '30px', width: '300px', height: 'auto'}}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+        </div>
+        <div>
+          <Button
+            type="submit"
+            value="Register"
+            varient='contained'
+            color="secondary"
+            size="large"
+            sx={{backgroundColor: '#C79A96', color: '#E6CEC7', marginTop: '15px', marginLeft: '15px' }}
+          >
+            Register
+          </Button>
+        </div>
+      </Paper>
     </form>
   );
 }
