@@ -16,6 +16,7 @@
 .bestSellerCover {
     width: 180px;
     height: auto;
+    /* padding: auto; */
     padding: 15px;
     padding-right: 30px;
 }

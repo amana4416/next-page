@@ -70,23 +70,25 @@ function BookDetails() {
         <>
             <section className="bookDetailsBackground">
                 <Paper
-                    sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', marginLeft: '85px', paddingLeft: '25px', paddingRight: '25px', paddingBottom: '15px', display: 'inline-flex'}}
+                    sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', marginLeft: '85px', paddingRight: '55px', paddingBottom: '45px', display: 'inline-flex'}}
                 >
-                    <Paper
-                        elevation={3}
-                        sx={{backgroundColor: '#B7B4A2', height:'300px', width: '275px', margin: '100px', padding: '15px'}}
-                    > 
-                        <img 
-                            className="bookDetails"
-                            src={bookDetails.book_cover}
-                            alt={bookDetails.book_title}
-                        />
-                    </Paper>
+                    <section className="bookDetailCover">
+                        <Paper
+                            elevation={3}
+                            sx={{backgroundColor: '#B7B4A2', height:'500px', width: '400px', margin: '100px',}}
+                        > 
+                            <img 
+                                className="bookDetailsCover"
+                                src={bookDetails.book_cover}
+                                alt={bookDetails.book_title}
+                            />
+                        </Paper>
+                    </section>
 
                     <section className="bookDetailsInfo">
                         <Paper
                             elevation={3}
-                            sx={{backgroundColor: '#B7B4A2', height:'auto', width: '525px', marginTop: '100px',}}
+                            sx={{backgroundColor: '#B7B4A2', height:'auto', width: '525px', marginTop: '100px', padding: '20px'}}
                         > 
                             <h2>{bookDetails.book_title}</h2>
                             <h2>Written by: {bookDetails.book_author}</h2>
@@ -94,9 +96,12 @@ function BookDetails() {
 
                             <section className="updateBook">
                                 <DeleteForeverIcon
+                                    className="deleteButton"
+                                    fontSize="large"
+                                    sx={{color: '#42373A'}}
                                     onClick={() => deleteFromBookshelf(bookDetails.id)}
                                 >
-                                </DeleteForeverIcon>
+                                </DeleteForeverIcon >
                                 <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
                                     <InputLabel id="demo-simple-select-standard-label">Select Bookshelf</InputLabel>
                                     <Select

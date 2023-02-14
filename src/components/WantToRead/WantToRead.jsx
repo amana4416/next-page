@@ -42,11 +42,10 @@ function WantToRead() {
                             sx={{backgroundColor: '#B7B4A2', height:'auto', width: '160px', margin: '15px', marginBottom: '15px',  display: 'inline-flex'}}
                             >
                                 <img 
-                                    className=""
+                                    className="profileWantLast"
                                     src={want.book_cover} 
                                     alt={want.book_title}
                                 />
-
                             </Paper>
                         )
                     })}

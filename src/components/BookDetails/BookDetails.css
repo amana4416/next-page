@@ -1,13 +1,30 @@
-.bookDetailsBackground, .bookDetailsInfo {
+ .bookDetailCover, .bookDetailsInfo {
     display: inline-flex;
 }
 
+.bookDetailsCover {
+    width: 275px;
+    height: 412px;
+    padding: 55px;
+    padding-top: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .bookDetailsInfo {
-    display: block;
-    padding-left: 10px;
+    display: flex;
+    /* padding-left: 10px; */
     color: #42373A;
 } 
 
 .updateBook {
     display: inline-block;
+    padding-top: 10px;
 }
+
+.deleteButton {
+    padding-top: 20px;
+    padding-right: 15px;
+}
+
