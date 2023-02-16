@@ -2,6 +2,10 @@
     display: inline-flex;
 }
 
+.leftSide {
+    display: block;
+}
+
 .bookDetailsCover {
     width: 275px;
     height: 412px;
@@ -34,4 +38,8 @@
 .notesForm {
     display: inline-flex;
     padding-top: 25px;
+}
+
+.previousNotes {
+    display: inline-block;
 }

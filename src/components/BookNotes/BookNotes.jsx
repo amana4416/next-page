@@ -1,18 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import BookNotesForm from "../BookNotesForm/BookNotesForm";
-//mui import 
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+import './BookNotes.css';
+//mui import
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-function BookNotes({bookDetails}) {
+function BookNotes() {
 
     const dispatch = useDispatch();
     const params = useParams();
-
-
-
 
     //calling bookNotes from the redux store
     const bookNotes = useSelector(store => store.bookNotes)
@@ -26,16 +22,25 @@ function BookNotes({bookDetails}) {
         })
     }, [params.id])
 
-    
-
-
     return (
         <>
-            
-
             {bookNotes.map(notes => {
                 return (
-                    <h2 key={notes.id}>{notes.note}</h2>
+                    <>
+                    <h4 
+                        className="previousNote"
+                        key={notes.id}
+                    >
+                        {notes.note}
+                    </h4>
+                        <DeleteForeverIcon
+                            className="deleteNoteButton"
+                            fontSize="medium"
+                            sx={{color: '#42373A'}}
+                            // onClick={() => deleteFromBookshelf(bookDetails.id)}
+                        >
+                        </DeleteForeverIcon >
+                    </>
                 )
             })}
         </>

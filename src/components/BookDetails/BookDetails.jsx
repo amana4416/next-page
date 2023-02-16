@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import swal from "sweetalert";
 import BookNotesForm from "../BookNotesForm/BookNotesForm";
+import BookNotes from "../BookNotes/BookNotes";
 import './BookDetails.css';
 //mui imports
 import Paper from '@mui/material/Paper'
@@ -20,7 +21,6 @@ function BookDetails() {
 
     //call bookDetails from the redux store
     const bookDetails = useSelector(store => store.bookDetails);
-
 
     useEffect(() => {  
         const bookId = params.id;
@@ -75,17 +75,33 @@ function BookDetails() {
                     sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', marginLeft: '85px', paddingRight: '55px', paddingBottom: '45px', display: 'inline-flex'}}
                 >
                     <section className="bookDetailCover">
-                        <Paper
-                            elevation={3}
-                            sx={{backgroundColor: '#B7B4A2', height:'500px', width: '400px', margin: '100px',}}
-                        > 
-                            <img 
-                                className="bookDetailsCover"
-                                src={bookDetails.book_cover}
-                                alt={bookDetails.book_title}
-                            />
-                        </Paper>
+                        <section className="leftSide">
+                            <Paper
+                                elevation={3}
+                                sx={{backgroundColor: '#B7B4A2', height:'500px', width: '400px', margin: '100px', marginBottom: '45px'}}
+                            > 
+                                <img 
+                                    className="bookDetailsCover"
+                                    src={bookDetails.book_cover}
+                                    alt={bookDetails.book_title}
+                                />
+                            </Paper>
+                            <Paper
+                                elevation={3}
+                                sx={{backgroundColor: '#B7B4A2', height:'auto', width: '400px', marginLeft: '100px',}}
+                            >
+                                <section className="notesForm">
+                                    <BookNotesForm 
+                                        bookDetails={bookDetails}
+                                    />
+                                </section>
+                                <section className="previousNotes">
+                                    <BookNotes />
+                                </section>
+                            </Paper>
+                        </section>
                     </section>
+                
                     <section className="bookDetailsInfo">
                         <Paper
                             elevation={3}
@@ -119,10 +135,6 @@ function BookDetails() {
                                     </Select>
                                 </FormControl>
                             </section>
-
-                            <BookNotesForm 
-                                bookDetails={bookDetails}
-                            />
                         </Paper>
                     </section>
                 </Paper>

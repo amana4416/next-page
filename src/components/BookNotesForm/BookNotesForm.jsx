@@ -35,18 +35,17 @@ function BookNotesForm({bookDetails}) {
                 value={note}
                 label="Add Note"
                 varient="standard"
-                sx={{color: '#42373A', width: '300px', height: '600px', margin: '15px', marginRight: '30px', height: 'auto'}}
+                sx={{color: '#42373A', width: '250px', height: 'auto', marginLeft: '15px',}}
                 onChange={(event) => setNote(event.target.value)}
             />
             <Button
                 color="secondary"
                 size="large"
-                sx={{backgroundColor: '#42373A', color: '#C79A96', marginTop: '20px', marginBottom: '25px', marginLeft:'15px' }}
+                sx={{backgroundColor: '#42373A', color: '#C79A96', marginTop: '5px', marginBottom: '25px', marginLeft:'10px' }}
                 onClick={() => {addNote(bookDetails.id)}}
             >
-                Leave a Note
+                Leave Note
             </Button>
-
         </form>
     )
 }
