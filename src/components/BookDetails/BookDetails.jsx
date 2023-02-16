@@ -18,9 +18,6 @@ function BookDetails() {
     const history = useHistory();
     const params = useParams();
 
-    //assigning input a piece of state
-    const [note, setNote] = useState('');
-
     //call bookDetails from the redux store
     const bookDetails = useSelector(store => store.bookDetails);
 

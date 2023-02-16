@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 //mui import 
 import Button from '@mui/material/Button';
@@ -7,6 +7,9 @@ import TextField from '@mui/material/TextField';
 function BookNotes({bookDetails}) {
 
     const dispatch = useDispatch();
+
+    //assigning input a piece of state
+    const [note, setNote] = useState('');
 
     //calling user from the redux store
     const user = useSelector(store => store.user);
@@ -17,6 +20,7 @@ function BookNotes({bookDetails}) {
             type: 'SAGA/ADD_NOTE',
             payload: {
                 book_id: bookDetails.id,
+                note: note,
                 user_id: user.id
             }
         })
@@ -25,10 +29,10 @@ function BookNotes({bookDetails}) {
     return (
         <>
             <TextField 
-                // value={note}
+                value={note}
                 label="Add Note"
                 varient="standard"
-                sx={{color: '#42373A', margin: '15px', marginRight: '30px', width: '300px', height: 'auto'}}
+                sx={{color: '#42373A', width: '300px', height: '500px', margin: '15px', marginRight: '30px', height: 'auto'}}
                 onChange={(event) => setNote(event.target.value)}
             />
             <Button

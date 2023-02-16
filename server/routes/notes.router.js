@@ -10,11 +10,11 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     // console.log('here is our new note info:', newNote);
     const sqlQuery = `
         INSERT INTO "user_notes"
-        ("book_id", "user_id")
+        ("book_id", "note", "user_id")
             VALUES
-            ($1, $2);
+            ($1, $2, $3);
     `;
-    const sqlValues = [newNote.book_id, newNote.user_id];
+    const sqlValues = [newNote.book_id, newNote.note, newNote.user_id];
     pool.query(sqlQuery, sqlValues)
         .then((response) => {
             res.sendStatus(201);

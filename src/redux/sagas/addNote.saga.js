@@ -11,6 +11,7 @@ function* addNote(action) {
             url: `/api/notes`,
             data: {
                 book_id: newNote.book_id,
+                note: newNote.note,
                 user_id: newNote.user_id
             }
         })
