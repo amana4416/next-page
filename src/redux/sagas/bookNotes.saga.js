@@ -17,8 +17,6 @@ function* fetchNotes(action) {
         console.log('error fetching book notes', error);
     }
 }
-
-
 //we need to access action.payload so we can post it to our db
 function* addNote(action) {
     try {
@@ -38,13 +36,27 @@ function* addNote(action) {
             payload: response.data
         })
     } catch (error) {
-        console.log('error in addNote', error)
+        console.log('error in addNote', error);
+    }
+}
+
+//need to use action.payload in funciton
+function* deleteNote(action) {
+    try { 
+        const noteToDelete = action.payload;
+        const response = yield axios({
+            method: 'DELETE',
+            url: `/api/notes/${noteToDelete}`
+        })
+    } catch (error) {
+        console.log('error deleting a note from book', error);
     }
 }
 
 function* BookNotesSaga() {
     yield takeLatest('SAGA/FETCH_NOTES', fetchNotes);
     yield takeLatest('SAGA/ADD_NOTE', addNote);
+    yield takeLatest('SAGA/DELETE_NOTE', deleteNote);
 }
 
 export default BookNotesSaga;
