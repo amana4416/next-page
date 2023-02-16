@@ -22,25 +22,27 @@ function BookNotes() {
         })
     }, [params.id])
 
+    const deleteNote = (id) => {
+        console.log('trying to delete a note with this id:', id);
+    }
+
     return (
         <>
             {bookNotes.map(notes => {
                 return (
-                    <>
-                    <h4 
-                        className="previousNote"
+                    <section className="previousNote">
+                    <li
                         key={notes.id}
                     >
                         {notes.note}
-                    </h4>
+                    </li>
                         <DeleteForeverIcon
-                            className="deleteNoteButton"
                             fontSize="medium"
-                            sx={{color: '#42373A'}}
-                            // onClick={() => deleteFromBookshelf(bookDetails.id)}
+                            sx={{color: '#42373A', display:'inline-flex'}}
+                            onClick={() => deleteNote(notes.id)}
                         >
                         </DeleteForeverIcon >
-                    </>
+                    </section>
                 )
             })}
         </>

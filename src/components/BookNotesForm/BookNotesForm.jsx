@@ -33,9 +33,10 @@ function BookNotesForm({bookDetails}) {
         <form>
             <TextField 
                 value={note}
-                label="Add Note"
+                label="Leave Note"
+                required
                 varient="standard"
-                sx={{color: '#42373A', width: '250px', height: 'auto', marginLeft: '15px',}}
+                sx={{color: '#42373A', width: '250px', height: 'auto', marginLeft: '10px',}}
                 onChange={(event) => setNote(event.target.value)}
             />
             <Button
