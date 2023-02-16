@@ -49,4 +49,25 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   });
 
 
+//this delete route will delete a not from the details page (and the "user_notes" table in the db)
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    const currentUser = req.user.id
+    const noteToDelete = req.params.id;
+    const sqlQuery = `
+        DELETE FROM "user_notes"
+            WHERE "id" = $1
+            AND "user_id" = $2;
+    `;
+    const sqlValues = [noteToDelete, currentUser];
+    pool.query(sqlQuery, sqlValues)
+        .then((response) => {
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log('error in /api/notes DELETE', error);
+            res.sendStatus(500);
+        })
+})
+
+
 module.exports = router;

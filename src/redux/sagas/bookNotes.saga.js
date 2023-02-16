@@ -48,6 +48,9 @@ function* deleteNote(action) {
             method: 'DELETE',
             url: `/api/notes/${noteToDelete}`
         })
+        yield put({
+            type: 'SAGA/FETCH_NOTES'
+        })
     } catch (error) {
         console.log('error deleting a note from book', error);
     }
