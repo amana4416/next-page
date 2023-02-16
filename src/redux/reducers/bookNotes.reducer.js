@@ -1,5 +1,5 @@
-//setting state as an object because server is sending us an object
-const bookNotes = (state = {}, action) => {
+//setting state as an array because server is sending us an object
+const bookNotes = (state = [], action) => {
     switch (action.type) {
         //when you want to see book notes
         case 'SET_NOTES':

@@ -16,8 +16,8 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     const sqlValues = [user_id, book_id];
     pool.query(sqlQuery, sqlValues)
         .then((response) => {
-            console.log('here is your previouse note', response.rows[0]);
-            res.send(response.rows[0]);
+            console.log('here is your previouse note', response.rows);
+            res.send(response.rows);
         })
         .catch((error) => {
             console.log('error in /api/notes/:id', error);

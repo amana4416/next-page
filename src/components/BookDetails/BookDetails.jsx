@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import swal from "sweetalert";
-import BookNotes from "../BookNotes/BookNotes";
+import BookNotesForm from "../BookNotesForm/BookNotesForm";
 import './BookDetails.css';
 //mui imports
 import Paper from '@mui/material/Paper'
@@ -119,11 +119,10 @@ function BookDetails() {
                                     </Select>
                                 </FormControl>
                             </section>
-                            <section className="notesForm">
-                                <BookNotes 
-                                    bookDetails={bookDetails}
-                                />
-                            </section>
+
+                            <BookNotesForm 
+                                bookDetails={bookDetails}
+                            />
                         </Paper>
                     </section>
                 </Paper>

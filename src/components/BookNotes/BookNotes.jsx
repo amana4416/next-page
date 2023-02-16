@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
+import BookNotesForm from "../BookNotesForm/BookNotesForm";
 //mui import 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -10,11 +11,11 @@ function BookNotes({bookDetails}) {
     const dispatch = useDispatch();
     const params = useParams();
 
-    //assigning input a piece of state
-    const [note, setNote] = useState('');
 
-    //calling user from the redux store
-    const user = useSelector(store => store.user);
+
+
+    //calling bookNotes from the redux store
+    const bookNotes = useSelector(store => store.bookNotes)
 
     //useEffect to retrieve any previous notes that have been left on a book
     useEffect(() => {
@@ -25,37 +26,18 @@ function BookNotes({bookDetails}) {
         })
     }, [params.id])
 
-    const addNote = (id) => {
-        console.log('you left a note on book with id:', id)
-        dispatch({
-            type: 'SAGA/ADD_NOTE',
-            payload: {
-                book_id: bookDetails.id,
-                note: note,
-                user_id: user.id
-            }
-        })
-
-    }
     
+
 
     return (
         <>
-            <TextField 
-                value={note}
-                label="Add Note"
-                varient="standard"
-                sx={{color: '#42373A', width: '300px', height: '600px', margin: '15px', marginRight: '30px', height: 'auto'}}
-                onChange={(event) => setNote(event.target.value)}
-            />
-            <Button
-                color="secondary"
-                size="large"
-                sx={{backgroundColor: '#42373A', color: '#C79A96', marginTop: '20px', marginBottom: '25px', marginLeft:'15px' }}
-                onClick={() => {addNote(bookDetails.id)}}
-            >
-                Leave a Note
-            </Button>
+            
+
+            {bookNotes.map(notes => {
+                return (
+                    <h2 key={notes.id}>{notes.note}</h2>
+                )
+            })}
         </>
     )
 }
