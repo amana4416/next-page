@@ -24,6 +24,10 @@ function BookNotes() {
 
     const deleteNote = (id) => {
         console.log('trying to delete a note with this id:', id);
+        dispatch({
+            type: 'SAGA/DELETE_NOTE',
+            payload: id
+        })
     }
 
     return (
