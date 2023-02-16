@@ -30,3 +30,8 @@
     padding-top: 20px;
     padding-right: 15px;
 }
+
+.notesForm {
+    display: inline-block;
+    padding-top: 25px;
+}

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 //mui imports
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';

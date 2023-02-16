@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import swal from "sweetalert";
+import BookNotes from "../BookNotes/BookNotes";
 import './BookDetails.css';
 //mui imports
 import Paper from '@mui/material/Paper'
@@ -10,7 +11,6 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import Button from '@mui/material/Button';
 
 function BookDetails() {
 
@@ -18,10 +18,12 @@ function BookDetails() {
     const history = useHistory();
     const params = useParams();
 
+    //assigning input a piece of state
+    const [note, setNote] = useState('');
+
     //call bookDetails from the redux store
     const bookDetails = useSelector(store => store.bookDetails);
-    //calling user from the redux store
-    const user = useSelector(store => store.user);
+
 
     useEffect(() => {  
         const bookId = params.id;
@@ -67,17 +69,6 @@ function BookDetails() {
         })
         //navigate user back to profile page
         history.push('/profile');
-    }
-
-    const addNote = (id) => {
-        console.log('you left a note on book with id:', id)
-        dispatch({
-            type: 'SAGA/ADD_NOTE',
-            payload: {
-                book_id: id,
-                user_id: user.id
-            }
-        })
     }
 
     return (
@@ -131,14 +122,11 @@ function BookDetails() {
                                     </Select>
                                 </FormControl>
                             </section>
-                            <Button
-                                color="secondary"
-                                size="large"
-                                sx={{backgroundColor: '#42373A', color: '#C79A96', marginBottom: '25px', marginLeft:'15px' }}
-                                onClick={() => {addNote(bookDetails.id)}}
-                            >
-                                Leave a Note
-                            </Button>
+                            <section className="notesForm">
+                                <BookNotes 
+                                    bookDetails={bookDetails}
+                                />
+                            </section>
                         </Paper>
                     </section>
                 </Paper>
