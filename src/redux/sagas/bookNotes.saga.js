@@ -1,17 +1,18 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-
-// function* fetchNotes() {
-//     try {
-//         // const response = yield axios({
-//         //     method: 'GET',
-//         //     url: `/notes`
-//         // })
-//     } catch (error) {
-//         console.log('error fetching book notes', error);
-//     }
-// }
+//we want access to action.payload
+function* fetchNotes(action) {
+    try {
+        const book_id = action.payload;
+        const response = yield axios({
+            method: 'GET',
+            url: `/notes${book_id}`
+        })
+    } catch (error) {
+        console.log('error fetching book notes', error);
+    }
+}
 
 
 //we need to access action.payload so we can post it to our db
@@ -38,7 +39,7 @@ function* addNote(action) {
 }
 
 function* BookNotesSaga() {
-    // yield takeLatest('SAGA/FETCH_NOTES', fetchNotes);
+    yield takeLatest('SAGA/FETCH_NOTES', fetchNotes);
     yield takeLatest('SAGA/ADD_NOTE', addNote);
 }
 
