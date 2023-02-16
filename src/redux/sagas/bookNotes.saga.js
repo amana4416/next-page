@@ -7,7 +7,11 @@ function* fetchNotes(action) {
         const book_id = action.payload;
         const response = yield axios({
             method: 'GET',
-            url: `/notes${book_id}`
+            url: `/api/notes/${book_id}`
+        })
+        yield put({
+            type: 'SET_NOTES',
+            payload: response.data
         })
     } catch (error) {
         console.log('error fetching book notes', error);

@@ -7,7 +7,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 //bookshelf 1 is the 'currently reading' bookshelf
 router.get('/currently/last', rejectUnauthenticated, (req, res) => {
   console.log('fetching books you are currently reading');
-  const currentUser = req.user.id
+  const currentUser = req.user.id;
   //sql query checks to see if the user id is the same as the one who added the book to the table
   //that way users are only shown their own libraries, not everyones
   //then it will grab the last 6 books that are in bookshelf 1
@@ -33,7 +33,7 @@ router.get('/currently/last', rejectUnauthenticated, (req, res) => {
 //this get route will get fetch the last 6 books in bookshelf 2
 //bookshelf 2 is the 'want to read' bookshelf
 router.get('/want/last', rejectUnauthenticated, (req, res) => {
-  const currentUser = req.user.id
+  const currentUser = req.user.id;
   //sql query checks to see if the user id is the same as the one who added the book to the table
   //that way users are only shown their own libraries, not everyones
   //then it will grab the last 6 books that are in bookshelf 2
@@ -63,7 +63,7 @@ router.get('/finished/last', rejectUnauthenticated, (req, res) => {
   //sql query checks to see if the user id is the same as the one who added the book to the table
   //that way users are only shown their own libraries, not everyones
   //then it will grab the last 6 books that are in bookshelf 2
-  const currentUser = req.user.id
+  const currentUser = req.user.id;
   const sqlQuery = `
     SELECT * FROM "user_library"
       WHERE "user_id" = $1
@@ -87,7 +87,7 @@ router.get('/finished/last', rejectUnauthenticated, (req, res) => {
 //bookshelf 1 is the 'currently reading' bookshelf
 router.get('/currently', rejectUnauthenticated, (req, res) => {
   console.log('fetching books you are currently reading');
-  const currentUser = req.user.id
+  const currentUser = req.user.id;
   //sql query checks to see if the user id is the same as the one who added the book to the table
   //that way users are only shown their own libraries, not everyones
   //then it will grab all the books that are in bookshelf 1
@@ -113,7 +113,7 @@ router.get('/currently', rejectUnauthenticated, (req, res) => {
 //bookshelf 2 is the 'want to read' bookshelf
 router.get('/want', rejectUnauthenticated, (req, res) => {
   console.log('fetching books you want to read');
-  const currentUser = req.user.id
+  const currentUser = req.user.id;
   //sql query checks to see if the user id is the same as the one who added the book to the table
   //that way users are only shown their own libraries, not everyones
   //then it will grab all the books that are in bookshelf 2
@@ -138,7 +138,7 @@ router.get('/want', rejectUnauthenticated, (req, res) => {
 //bookshelf 3 is the finished reading bookshelf
 router.get('/finished', rejectUnauthenticated, (req, res) => {
   console.log('fetching books you finished');
-  const currentUser = req.user.id
+  const currentUser = req.user.id;
   //sql query checks to see if the user id is the same as the one who added the book to the table
   //that way users are only shown their own libraries, not everyones
   //then it will grab all the books that are in bookshelf 3
@@ -169,8 +169,8 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
       WHERE "user_id" = $1
       AND "id" = $2;
   `;
-  const sqlValue = [currentUser, bookId];
-  pool.query(sqlQuery, sqlValue)
+  const sqlValues = [currentUser, bookId];
+  pool.query(sqlQuery, sqlValues)
     .then((response) => {
       console.log('here are the book details you requested:', response.rows[0]);
       res.send(response.rows[0]);

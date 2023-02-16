@@ -3,6 +3,29 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware')
 
+//this get route will allow authenticated users to see 
+//the notes they have already left on books
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+    const user_id = req.user.id;
+    const book_id = req.params.id;
+    const sqlQuery = `
+        SELECT * FROM "user_notes"
+            WHERE "user_id" = $1
+            AND "book_id" = $2;
+    `;
+    const sqlValues = [user_id, book_id];
+    pool.query(sqlQuery, sqlValues)
+        .then((response) => {
+            console.log('here is your previouse note', response.rows[0]);
+            res.send(response.rows[0]);
+        })
+        .catch((error) => {
+            console.log('error in /api/notes/:id', error);
+            res.sendStatus(500);
+        })
+});
+
+
 //this post route will allow authenticated users to to
 //add/leave notes on books in their bookshelf
 router.post('/', rejectUnauthenticated, (req, res) => {
@@ -24,12 +47,6 @@ router.post('/', rejectUnauthenticated, (req, res) => {
             res.sendStatus(500);
         })
   });
-
-
-router.get('/', (req, res) => {
-  // GET route code here
-});
-
 
 
 module.exports = router;
