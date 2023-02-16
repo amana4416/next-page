@@ -32,6 +32,6 @@
 }
 
 .notesForm {
-    display: inline-block;
+    display: inline-flex;
     padding-top: 25px;
 }
