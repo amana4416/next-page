@@ -27,7 +27,7 @@ function SearchForm() {
         <>
             <form className='searchInput' onSubmit={submitSearch}>
                 <Paper 
-                    sx={{backgroundColor: '#B7B4A2', width: '450px', marginLeft: '480px'}}
+                    sx={{backgroundColor: '#B7B4A2', width: '450px', marginLeft: '500px'}}
                 >
                     <TextField 
                         value={search}

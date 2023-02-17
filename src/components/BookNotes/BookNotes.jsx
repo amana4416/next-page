@@ -28,16 +28,15 @@ function BookNotes() {
             type: 'SAGA/DELETE_NOTE',
             payload: id
         })
+        
     }
 
     return (
         <>
             {bookNotes.map(notes => {
                 return (
-                    <section className="previousNote">
-                    <li
-                        key={notes.id}
-                    >
+                    <section key={notes.id} className="previousNote">
+                    <li>
                         {notes.note}
                     </li>
                         <DeleteForeverIcon

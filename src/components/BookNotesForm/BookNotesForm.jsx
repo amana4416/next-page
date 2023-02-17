@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-//mui import 
+import { useHistory } from 'react-router-dom';
+//mui imports
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
@@ -8,6 +9,7 @@ import TextField from '@mui/material/TextField';
 function BookNotesForm({bookDetails}) {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     //assigning input a piece of state
     const [note, setNote] = useState('');

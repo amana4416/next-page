@@ -17,7 +17,7 @@ function WantToRead() {
     //books marked as 'want to read' as soon as the profile page opens
     useEffect(() => {
         dispatch({
-            type: 'SAGA/FETCH_WANT_TO_READ'
+            type: 'SAGA/FETCH_LAST_WANT_TO_READ'
         })
     }, [])
 
@@ -32,7 +32,7 @@ function WantToRead() {
         <>
            <section className="wantToReadBackground" onClick={openWantToRead}>
                 <Paper
-                    sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', paddingLeft: '25px', paddingRight: '25px', paddingBottom: '15px',}}
+                    sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', paddingLeft: '25px', paddingRight: '25px', paddingBottom: '15px', cursor: 'pointer'}}
                 >
                     <h2 className="bookshelfHeading">Want To Read:</h2>
                     {wantToRead.map(want => {

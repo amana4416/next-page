@@ -17,7 +17,7 @@ function CurrentlyReading() {
     //books marked as 'currently reading' as soon as the profile page opens
     useEffect(() => {
         dispatch({
-            type: 'SAGA/FETCH_CURRENTLY_READING'
+            type: 'SAGA/FETCH_LAST_CURRENTLY_READING'
         })
     }, [])
 
@@ -33,7 +33,7 @@ function CurrentlyReading() {
         <>
             <section className="currentlyReadingBackground" onClick={openCurrentlyReading}>
                 <Paper
-                    sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', paddingLeft: '25px', paddingRight: '25px', paddingBottom: '15px',}}
+                    sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', paddingLeft: '25px', paddingRight: '25px', paddingBottom: '15px', cursor: 'pointer'}}
                 >
                     <h2 className="bookshelfHeading">Currently Reading:</h2>
                     {currentlyReading.map(currently => {

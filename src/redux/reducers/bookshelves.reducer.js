@@ -11,7 +11,7 @@ const lastCurrentlyReading = (state = [], action) => {
 
 const lastWantToRead = (state = [], action) => {
     switch (action.type) {
-        case 'SET_WANT_TO_READ':
+        case 'SET_LAST_WANT_TO_READ':
             return action.payload;
         default: 
             return state;
@@ -20,7 +20,7 @@ const lastWantToRead = (state = [], action) => {
 
 const lastFinishedReading = (state = [], action) => {
     switch (action.type) {
-        case 'SET_FINISHED_READING':
+        case 'SET_LAST_FINISHED_READING':
             return action.payload
         default:
             return state

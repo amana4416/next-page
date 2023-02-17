@@ -95,7 +95,7 @@ router.get('/currently', rejectUnauthenticated, (req, res) => {
     SELECT * FROM "user_library"
       WHERE "user_id" = $1
       AND "bookshelf" = 1
-      ORDER BY "id" DESC;
+      ORDER BY "id" DESC
   `;
   const sqlValue = [currentUser];
   pool.query(sqlQuery, sqlValue)
@@ -145,7 +145,7 @@ router.get('/finished', rejectUnauthenticated, (req, res) => {
   const sqlQuery = `
     SELECT * FROM "user_library"
       WHERE "user_id" = $1
-      AND "bookshelf" = 1]3
+      AND "bookshelf" = 3
       ORDER BY "id" DESC;
   `;
   const sqlValue = [currentUser];

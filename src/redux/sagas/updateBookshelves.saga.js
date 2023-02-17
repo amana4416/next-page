@@ -10,6 +10,15 @@ function* deleteFromBookshelf(action) {
             method: 'DELETE',
             url: `/api/bookshelves/${bookToDelete}`
         })
+        yield put({
+            type: 'SAGA/FETCH_LAST_CURRENTLY_READING'
+        })
+        yield put({
+            type: 'SAGA/FETCH_LAST_WANT_TO_READ'
+        })
+        yield put({
+            type: 'SAGA/SET_LAST_WANT_TO_READ'
+        })
     } catch (error) {
         console.log('error deleting book from the bookshelf', error)
     }

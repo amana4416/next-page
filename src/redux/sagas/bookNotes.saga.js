@@ -44,9 +44,11 @@ function* addNote(action) {
 function* deleteNote(action) {
     try { 
         const noteToDelete = action.payload;
+        console.log('id of note we are deleting', noteToDelete)
         const response = yield axios({
             method: 'DELETE',
-            url: `/api/notes/${noteToDelete}`
+            url: `/api/notes/${noteToDelete}`,
+            data: ''
         })
         yield put({
             type: 'SAGA/FETCH_NOTES'

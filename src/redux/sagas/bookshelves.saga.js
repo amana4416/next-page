@@ -29,7 +29,7 @@ function* fetchLastWantToRead() {
         })
         //store books in a reducer
         yield put({
-            type: 'SET_WANT_TO_READ',
+            type: 'SET_LAST_WANT_TO_READ',
             payload: response.data
         })
     } catch {
@@ -46,7 +46,7 @@ function* fetchLastFinishedReading() {
         })
         //store books in a reducer
         yield put({
-            type: 'SET_FINISHED_READING',
+            type: 'SET_LAST_FINISHED_READING',
             payload: response.data
         })
     } catch {
@@ -55,9 +55,9 @@ function* fetchLastFinishedReading() {
 }
 
 function* bookshelvesSaga() {
-    yield takeLatest('SAGA/FETCH_CURRENTLY_READING', fetchLastCurrentlyReading);
-    yield takeLatest('SAGA/FETCH_WANT_TO_READ', fetchLastWantToRead);
-    yield takeLatest('SAGA/FETCH_FINISHED_READING', fetchLastFinishedReading);
+    yield takeLatest('SAGA/FETCH_LAST_CURRENTLY_READING', fetchLastCurrentlyReading);
+    yield takeLatest('SAGA/FETCH_LAST_WANT_TO_READ', fetchLastWantToRead);
+    yield takeLatest('SAGA/FETCH_LAST_FINISHED_READING', fetchLastFinishedReading);
 }
 
 export default bookshelvesSaga;

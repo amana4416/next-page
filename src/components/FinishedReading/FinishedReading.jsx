@@ -17,7 +17,7 @@ function FinishedReading() {
     //books marked as 'finished reading' as soon as the profile page opens
     useEffect(() => {
         dispatch({
-            type: 'SAGA/FETCH_FINISHED_READING'
+            type: 'SAGA/FETCH_LAST_FINISHED_READING'
         })
     }, [])
 
@@ -33,7 +33,7 @@ function FinishedReading() {
         <>
             <section className="finishedReadingBackground" onClick={openFinishedReading}>
                 <Paper
-                    sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', paddingLeft: '25px', paddingRight: '25px', paddingBottom: '15px',}}
+                    sx={{backgroundColor: '#808274', height: 'auto', width: '1200px', margin: 'auto', marginTop: '25px', paddingLeft: '25px', paddingRight: '25px', paddingBottom: '15px', cursor: 'pointer'}}
                 >
                     <h2 className="bookshelfHeading">Finished Reading:</h2>
                     {finishedReading.map(finished => {

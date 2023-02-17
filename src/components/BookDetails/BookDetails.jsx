@@ -47,7 +47,7 @@ function BookDetails() {
             title: 'Deleted book from your bookshelf'
         })
         //navigate back to profile
-        history.push('/profile');
+       .then( history.push('/profile'));
     }
 
     const changeBookshelf = (id, event) => {
@@ -64,7 +64,8 @@ function BookDetails() {
             icon: 'success',
             title: 'Moved book to another bookshelf'
         })
-        .then(history.push('/profile'))
+        //navigate back to profile
+        // .then(history.push('/profile'));
     }
 
     return (

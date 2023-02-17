@@ -27,7 +27,7 @@ function SearchItem({results}) {
             type: 'SAGA/ADD_TO_BOOKSHELF',
             //we're adding a book to our bookshelf so we need to send all this info along
             //to so we can add the book to our database!
-            payload: {
+            payload: { 
                 book_title: book_title,
                 book_author: book_author,
                 book_cover: book_cover,

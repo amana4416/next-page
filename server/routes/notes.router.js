@@ -8,19 +8,19 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     const user_id = req.user.id;
     const book_id = req.params.id;
+    console.log
     const sqlQuery = `
         SELECT * FROM "user_notes"
-            WHERE "user_id" = $1
-            AND "book_id" = $2;
+            WHERE "book_id" = $1;
     `;
-    const sqlValues = [user_id, book_id];
+    const sqlValues = [book_id];
     pool.query(sqlQuery, sqlValues)
         .then((response) => {
             console.log('here is your previouse note', response.rows);
             res.send(response.rows);
         })
         .catch((error) => {
-            console.log('error in /api/notes/:id', error);
+            console.log('error in /api/notes/ GET', error);
             res.sendStatus(500);
         })
 });
@@ -53,12 +53,12 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const currentUser = req.user.id
     const noteToDelete = req.params.id;
+    console.log('noteToDelete', noteToDelete)
     const sqlQuery = `
         DELETE FROM "user_notes"
-            WHERE "id" = $1
-            AND "user_id" = $2;
+            WHERE "id" = $1;
     `;
-    const sqlValues = [noteToDelete, currentUser];
+    const sqlValues = [noteToDelete];
     pool.query(sqlQuery, sqlValues)
         .then((response) => {
             res.sendStatus(201);
