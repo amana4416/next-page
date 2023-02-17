@@ -14,8 +14,8 @@ function ProfilePage() {
     return (
         <>
             <h2 className="welcomeUser"> Welcome: {user.username}!</h2>
-            <CurrentlyReading />
             <WantToRead />
+            <CurrentlyReading />
             <FinishedReading />
         </>
     )

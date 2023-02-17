@@ -71,8 +71,8 @@ function BestSellerItem({bestSeller}) {
                                 value={''}
                                 onChange={addToBookShelf}
                                 >
-                                    <MenuItem value={1}>Currently Reading</MenuItem>
                                     <MenuItem value={2}>Want To Read</MenuItem>
+                                    <MenuItem value={1}>Currently Reading</MenuItem>
                                     <MenuItem value={3}>Finished Reading</MenuItem>
                                 </Select>
                             </FormControl>

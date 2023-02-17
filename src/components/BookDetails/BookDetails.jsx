@@ -64,8 +64,7 @@ function BookDetails() {
             icon: 'success',
             title: 'Moved book to another bookshelf'
         })
-        //navigate user back to profile page
-        history.push('/profile');
+        .then(history.push('/profile'))
     }
 
     return (
@@ -129,8 +128,8 @@ function BookDetails() {
                                         value={''}
                                         onChange={(event) => {changeBookshelf(bookDetails.id, event)}}
                                     >
-                                        <MenuItem value={1}>Currently Reading</MenuItem>
                                         <MenuItem value={2}>Want To Read</MenuItem>
+                                        <MenuItem value={1}>Currently Reading</MenuItem>
                                         <MenuItem value={3}>Finished Reading</MenuItem>
                                     </Select>
                                 </FormControl>
