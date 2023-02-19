@@ -62,9 +62,21 @@ function AboutPage() {
           <ul>
             <li>Thanks to Matt, Dane, Vada and all of the instructors at Prime</li>
             <li>Vonngegut cohort</li>
-            <li>Special thanks for my friends and family for always being my biggest supporters</li>
+            <li>Special thanks to all my friends and family</li>
           </ul>
         </div>
+      </Paper>
+
+      <Paper 
+        sx={{backgroundColor: '#B7B4A2', width: '300px', height: 'auto', marginTop: '-100px', marginLeft: '550px', padding: '15px'}}
+      >
+        <section className="upcoming">
+          <h3>Upcoming Features:</h3>
+          <ul>
+            <li>Ablility to leave comments under books and rate them from 1-5</li>
+            <li>Amp up user profile to make it more personal</li>
+          </ul>
+        </section>
       </Paper>
 
     {/* // </div> */}
