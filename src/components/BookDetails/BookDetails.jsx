@@ -86,7 +86,7 @@ function BookDetails() {
                                     alt={bookDetails.book_title}
                                 />
                             </Paper>
-                            <Paper
+                            {/* <Paper
                                 elevation={3}
                                 sx={{backgroundColor: '#B7B4A2', height:'auto', width: '400px', marginLeft: '100px',}}
                             >
@@ -98,7 +98,7 @@ function BookDetails() {
                                 <section className="previousNotes">
                                     <BookNotes />
                                 </section>
-                            </Paper>
+                            </Paper> */}
                         </section>
                     </section>
                 
