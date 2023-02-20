@@ -45,7 +45,7 @@ All screenshots available in [screenshots](https://github.com/amana4416/next-pag
 * Express
 * Body-Parser
 * 'PG'
-* Database Manager
+* PostgreSQL
 * Material.UI
 
 ### Installation
@@ -59,7 +59,7 @@ All screenshots available in [screenshots](https://github.com/amana4416/next-pag
 
 ## Built With
 *  [React.js](http://www.dropwizard.io/1.0.2/docs/)
-*  [Material-UI](https://maven.apache.org/) - styling
+*  [Material-UI](https://mui.com/core/) - styling
 *  [New York Times Books API](https://developer.nytimes.com/apis) - Used to display the current week's best sellers list for hardcover fiction books.
 *  [Google Books API](https://developers.google.com/books) - Used for the ability to perform full text searches and retrieve book information.
 
