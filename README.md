@@ -44,9 +44,9 @@ All screenshots available in [screenshots](https://github.com/amana4416/next-pag
 * Axios
 * Express
 * Body-Parser
-* 'PG'
+* PG
 * PostgreSQL
-* Material.UI
+* Material UI
 
 ### Installation
 1. Clone this repository for your own access.
