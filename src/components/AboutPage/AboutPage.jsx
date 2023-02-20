@@ -3,14 +3,9 @@ import './AboutPage.css';
 //mui imports
 import Paper from '@mui/material/Paper';
 
-// This is one of our simplest components
-// It doesn't have local state,
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is'
 
 function AboutPage() {
   return (
-    // <div className="container">
     <>
       <Paper
         sx={{backgroundColor: '#B7B4A2', width: '300px', height: 'auto', marginTop: '50px', marginLeft: '125px', padding: '15px', display: 'inline-flex' }}
@@ -24,6 +19,7 @@ function AboutPage() {
             <li>Redux</li>
             <li>Sagas</li>
             <li>Passport</li>
+            <li>Postico</li>
             <li>Node</li>
             <li>Express</li>
             <li>Material UI</li>
@@ -32,7 +28,6 @@ function AboutPage() {
           </ul>
         </section>
       </Paper>
-
       <Paper
         sx={{backgroundColor: '#B7B4A2', width: '300px', height: 'auto', marginTop: '50px', marginLeft: '100px', marginRight: '100px', padding: '15px', display: 'inline-flex' }}
       >
@@ -66,7 +61,6 @@ function AboutPage() {
           </ul>
         </div>
       </Paper>
-
       <Paper 
         sx={{backgroundColor: '#B7B4A2', width: '300px', height: 'auto', marginTop: '-100px', marginLeft: '550px', padding: '15px'}}
       >
@@ -78,8 +72,6 @@ function AboutPage() {
           </ul>
         </section>
       </Paper>
-
-    {/* // </div> */}
     </>
   );
 }

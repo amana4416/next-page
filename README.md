@@ -2,7 +2,7 @@
 ![TOP_LANGUAGE](https://img.shields.io/github/languages/top/amana4416/next-page?style=flat-square)
 ![FORKS](https://img.shields.io/github/forks/amana4416/next-page?style=social)
 
-# next page:
+# next page
 
 _Duration: Two Week Sprint_
 
@@ -28,7 +28,7 @@ This is the scope document I used to plan the project. It includes the wireframe
 ## Screen Shots
 ![](/screenshots/homePage.png)
 
-All screenshots available in [screenshots](https://github.com/amana4416/next-page/tree/main/screenshots))
+All screenshots available in [screenshots](https://github.com/amana4416/next-page/tree/main/screenshots)
 
 
 ## Getting Started
@@ -90,6 +90,6 @@ As I continue to work on this project, I hope to expand it into a social media p
 
 ## Acknowledgments
 * Thanks to [Prime Digital Academy](https://www.primeacademy.io/) who equipped and helped me to make this application a reality.
-* Thanks to [New Yorks Times] (https://developer.nytimes.com/apis) for supplying the API key to their Books API. The NYT updates their best sellers every Wednesday, allowing users on the next page app to see the updated list.
-* Thanks to [Google] (https://developers.google.com/books) for providing the key to their books API. This API enabled the search feature, allowing users access to millions of books.
+* Thanks to [New Yorks Times](https://developer.nytimes.com/apis) for supplying the API key to their Books API. The NYT updates their best sellers every Wednesday, allowing users on the next page app to see the updated list.
+* Thanks to [Google](https://developers.google.com/books) for providing the key to their books API. This API enabled the search feature, allowing users access to millions of books.
 
