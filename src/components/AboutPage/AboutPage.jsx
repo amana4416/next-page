@@ -8,6 +8,7 @@ function AboutPage() {
   return (
     <>
       <Paper
+        elevation={3}
         sx={{backgroundColor: '#B7B4A2', width: '300px', height: 'auto', marginTop: '50px', marginLeft: '125px', padding: '15px', display: 'inline-flex' }}
       >
         <section className="techUsed">
@@ -30,6 +31,7 @@ function AboutPage() {
         </section>
       </Paper>
       <Paper
+        elevation={3}
         sx={{backgroundColor: '#B7B4A2', width: '300px', height: 'auto', marginTop: '50px', marginLeft: '100px', marginRight: '100px', padding: '15px', display: 'inline-flex' }}
       >
         <section className="contact">
@@ -51,6 +53,7 @@ function AboutPage() {
         </section>
       </Paper>
       <Paper
+        elevation={3}
         sx={{backgroundColor: '#B7B4A2', width: '300px', height: 'auto', marginTop: '50px', marginRight: '100px', padding: '15px', display: 'inline-flex' }}
       >
         <div className="thanks">
@@ -64,7 +67,8 @@ function AboutPage() {
         </div>
       </Paper>
       <Paper 
-        sx={{backgroundColor: '#B7B4A2', width: '300px', height: 'auto', marginTop: '-130px', marginLeft: '550px', padding: '15px'}}
+        elevation={3}
+        sx={{backgroundColor: '#B7B4A2', width: '300px', height: 'auto', marginTop: '-205px', marginLeft: '555px', padding: '15px'}}
       >
         <section className="upcoming">
           <h3>Upcoming Features:</h3>
