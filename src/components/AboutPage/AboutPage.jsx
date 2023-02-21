@@ -59,7 +59,7 @@ function AboutPage() {
         <div className="thanks">
           <h3>Acknowledgements:</h3>
           <ul>
-            <li>Thanks to Matt, Dane, Vada and all of the instructors at Prime</li>
+            <li>Thanks to Matt, Kris, Dane, Vada and all of the staff at Prime</li>
             <li>Vonngegut cohort</li>
             <li>Mentors</li>
             <li>Special thanks to all my friends and family</li>
